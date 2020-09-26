@@ -1,0 +1,38 @@
+import React from "react";
+import Chart from "react-google-charts";
+
+const Chart_CGPA = (props) => {
+  // console.log(props.results);
+
+  const arr = props.results;
+  const temp = new Array();
+
+  for (var i = 0; i < arr.length; i++) {
+    temp.push([parseInt(arr[i].SEM), parseFloat(arr[i].CGPA)]);
+  }
+
+  // console.log(temp);
+
+  return (
+    <div>
+      <Chart
+        width={"600px"}
+        height={"400px"}
+        chartType="LineChart"
+        loader={<div>Loading Chart</div>}
+        data={[["x", "CGPA"], ...temp]}
+        options={{
+          hAxis: {
+            title: "Semester",
+          },
+          vAxis: {
+            title: "CGPA",
+          },
+        }}
+        rootProps={{ "data-testid": "1" }}
+      />
+    </div>
+  );
+};
+
+export default Chart_CGPA;

@@ -1,0 +1,32 @@
+import React from "react";
+import { Descriptions } from "antd";
+import "./Dropdown.css";
+
+const Desc = (props) => {
+  const f = props.final;
+  // console.log(f[0]);
+  if (!f[0]) return null;
+
+  var credits = 0;
+  for (var i = 0; i < f.length; i++) {
+    credits = credits + parseInt(f[i].CREDITS);
+  }
+
+  return (
+    <div className="container">
+      <h2 className="headingsh2">Grades Summary:</h2>
+      <Descriptions>
+        <Descriptions.Item label="Grade">{f[0].SPI}</Descriptions.Item>
+        <Descriptions.Item label="Credits Gained">{credits}</Descriptions.Item>
+        {/* <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
+    <Descriptions.Item label="Remark">empty</Descriptions.Item>
+    <Descriptions.Item label="Address">
+      No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+    </Descriptions.Item>  */}
+      </Descriptions>
+      <br />
+    </div>
+  );
+};
+
+export default Desc;

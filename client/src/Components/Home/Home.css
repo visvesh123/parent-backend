@@ -1,0 +1,25 @@
+.sticky {
+  position: sticky;
+  bottom: 0;
+  color: white !important;
+  background-color: #e31138;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.ant-form {
+  padding: 25px;
+}
+
+.all {
+  background-color: white;
+}
+
+.name {
+  text-align: center;
+}
+
+.id {
+  text-align: center;
+}
