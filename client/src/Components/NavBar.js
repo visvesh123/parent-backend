@@ -73,7 +73,7 @@ const Navbar = () => {
           <section className="banner"></section>
         </div>
       )}
-      {isTabletOrMobileDevice && "Hello"}
+      {isTabletOrMobileDevice && <Main />}
     </div>
   );
 };

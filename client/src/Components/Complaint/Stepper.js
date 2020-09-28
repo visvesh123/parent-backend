@@ -95,7 +95,7 @@ function HorizontalLinearStepper(props) {
     setActiveStep(0);
   };
 
-  console.log(props);
+  console.log(props.complaint);
 
   return (
     <div className={classes.root}>
@@ -120,12 +120,12 @@ function HorizontalLinearStepper(props) {
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>
-              {/* {props.sendComplaint({
+              {props.sendComplaint({
                 type: !props.complaint.griev ? "" : props.complaint.griev,
                 desc: !props.complaint.description
                   ? ""
                   : props.complaint.description,
-              })} */}
+              })}
               <h3>Submitted Succesfully</h3>
             </Typography>
             {/* <Button onClick={handleReset} className={classes.button}>
@@ -173,12 +173,13 @@ function HorizontalLinearStepper(props) {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     complaint: state.complaint,
     student: state.student,
   };
 };
-export default connect(null, {
+export default connect(mapStateToProps, {
   sendComplaint: sendComplaint,
   fetchDescription: fetchDescription,
   fetchType: fetchType,

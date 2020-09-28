@@ -3,8 +3,8 @@ export default (state = { griev: "Other", description: "" }, action) => {
     case "SEND_COMPLAINT":
       return {
         ...state,
-        type: action.payload.type,
-        description: action.payload.description,
+        // type: action.payload.griev,
+        // description: action.payload.desc,
       };
 
     case "SENT_COMPLAINT":

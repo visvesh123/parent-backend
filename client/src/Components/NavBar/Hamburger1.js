@@ -1,15 +1,20 @@
 import React from "react";
 import { PropTypes } from "prop-types";
-import "./Hamburger.css";
-import { Link, animateScroll as scroll } from "react-scroll";
+import "./Hamburger1.css";
+import { Link, Redirect } from "react-router-dom";
+import { logoutUser } from "../../actions/authAction";
 import Logo from "../logo.png";
-class Hamburger extends React.Component {
+class Hamburger1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       menuOpen: false,
     };
   }
+
+  handleLogout = () => {
+    this.props.logoutUser();
+  };
 
   handleMenuClick() {
     this.setState({ menuOpen: !this.state.menuOpen });
@@ -50,17 +55,17 @@ class Hamburger extends React.Component {
       },
     };
     const menu = [
-      { val: "Home", link: "home" },
-      { val: "Grade", link: "grade" },
-      { val: "Attendance", link: "atten" },
-      { val: "IN/OUT", link: "in" },
-      { val: "Grievance", link: "griev" },
+      { val: "Home", link: "/home" },
+      { val: "Grade", link: "/grade" },
+      { val: "Attendance", link: "/attendance" },
+      { val: "IN/OUT", link: "/summary" },
+      { val: "Grievance", link: "/complaint" },
     ];
     const menuItems = menu.map((item, index) => {
       return (
         <MenuItem key={index} delay={`${index * 0.1}s`} onClick={() => {}}>
-          <Link to={item.link} smooth={true} duration={1000}>
-            <span className="middle-main">{item.val}</span>
+          <Link to={item.link}>
+            <span className="middle1">{item.val} </span>
           </Link>
         </MenuItem>
       );
@@ -86,7 +91,19 @@ class Hamburger extends React.Component {
             </a>
           </div>
         </div>
-        <Menu open={this.state.menuOpen}>{menuItems}</Menu>
+        <Menu open={this.state.menuOpen}>
+          {menuItems}
+          <MenuItem key={5} delay={`${5 * 0.1}s`} onClick={() => {}}>
+            <a
+              className="middle1"
+              style={({ float: "right" }, { fontSize: "25" })}
+              href="/login"
+              onClick={this.handleLogout}
+            >
+              Sign Out
+            </a>
+          </MenuItem>
+        </Menu>
         <div style={styles.body}></div>
       </div>
     );
@@ -271,7 +288,7 @@ class MenuButton extends React.Component {
 }
 
 /* Main.jsx */
-class Main extends React.Component {
+class Main1 extends React.Component {
   render() {
     const styles = {
       main: {
@@ -284,10 +301,10 @@ class Main extends React.Component {
 
     return (
       <div style={styles.main}>
-        <Hamburger />
+        <Hamburger1 />
       </div>
     );
   }
 }
 
-export default Main;
+export default Main1;

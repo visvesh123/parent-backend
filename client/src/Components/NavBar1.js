@@ -3,7 +3,7 @@ import Logo from "./logo.png";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/authAction";
 import { useMediaQuery } from "react-responsive";
-import Main from "./NavBar/Hamburger";
+import Main1 from "./NavBar/Hamburger1";
 import "./NavBar1.css";
 
 const Navbar1 = (props) => {
@@ -102,7 +102,7 @@ const Navbar1 = (props) => {
         </div>
       )}
 
-      {isTabletOrMobileDevice && <Main />}
+      {isTabletOrMobileDevice && <Main1 />}
     </div>
   );
 };

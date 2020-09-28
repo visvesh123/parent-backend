@@ -11,7 +11,7 @@ const Step3 = (props) => {
   function handleChange(e) {
     setDesc(e.target.value);
     console.log(desc);
-    props.fetchDescription(desc);
+    props.fetchDescription(e.target.value);
   }
   return (
     <div>

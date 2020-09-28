@@ -26,7 +26,7 @@ import AttendanceTable from "./Components/Admin/AttandanceTable";
 import ViewNoti from "./Components/Admin/ViewNoti";
 import VerticalTabs from "./Components/SecutityAdmin/SecHome";
 import SecLogin from "./Components/SecutityAdmin/SecLogin";
-import Main from "./Components/NavBar/Hamburger";
+import Main1 from "./Components/NavBar/Hamburger1";
 import Example from "./Components/NavBar/test";
 import { store } from "./index";
 function App() {
