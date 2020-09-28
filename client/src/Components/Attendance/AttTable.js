@@ -3,6 +3,7 @@ import { Table } from "reactstrap";
 import NavBar1 from "../NavBar1";
 import { fetchAttendance } from "../../actions/index";
 import { connect } from "react-redux";
+import "./AttTable.css";
 
 const AttTable = (props) => {
   // console.log(props.data);
@@ -23,7 +24,7 @@ const AttTable = (props) => {
   return (
     <div>
       <div className="container">
-        <Table>
+        <Table className="att-table">
           <thead>
             <tr>
               <th>#</th>

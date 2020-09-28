@@ -7,8 +7,8 @@ function Mail(req, res) {
     // secure: false, // true for 465, false for other ports
     service: "gmail",
     auth: {
-      user: "visveshnaraharisetty@gmail.com", // generated ethereal user
-      pass: "iitjee123", // generated ethereal password
+      user: "mecparentsportal@gmail.com", // generated ethereal user
+      pass: "parents1234", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,

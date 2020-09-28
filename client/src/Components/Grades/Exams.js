@@ -13,51 +13,52 @@ const Exams = (props) => {
   // console.log(int);
   // console.log(maj);
 
-  const renM1 = m1.map((item, index) => {
-    return (
-      <Fragment>
-        <tr>
-          <td>{item.SUB_NAME}</td>
-          <td>{`${item.MARKS}/${item.MARKS_TOT}`}</td>
-        </tr>
-      </Fragment>
-    );
-  });
+  // const renM1 = m1.map((item, index) => {
+  //   return (
+  //     <Fragment>
+  //       <tr>
+  //         <td>{item.SUB_NAME}</td>
+  //         <td>{`${item.MARKS}/${item.MARKS_TOT}`}</td>
+  //       </tr>
+  //     </Fragment>
+  //   );
+  // });
 
-  const renM2 = m2.map((item, index) => {
-    return (
-      <Fragment>
-        <tr>
-          <td>{`${item.MARKS}/${item.MARKS_TOT}`}</td>
-        </tr>
-      </Fragment>
-    );
-  });
+  // const renM2 = m2.map((item, index) => {
+  //   return (
+  //     <Fragment>
+  //       <tr>
+  //         <td>{`${item.MARKS}/${item.MARKS_TOT}`}</td>
+  //       </tr>
+  //     </Fragment>
+  //   );
+  // });
 
-  const renInt = int.map((item) => {
-    return (
-      <Fragment>
-        <tr>
-          <td>{`${item.INT_M}/${item.INT_TOT}`}</td>
-          <td>{`${item.LAB_M}/${item.LAB_TOT}`}</td>
-        </tr>
-      </Fragment>
-    );
-  });
+  // const renInt = int.map((item) => {
+  //   return (
+  //     <Fragment>
+  //       <tr>
+  //         <td>{`${item.INT_M}/${item.INT_TOT}`}</td>
+  //         <td>{`${item.LAB_M}/${item.LAB_TOT}`}</td>
+  //       </tr>
+  //     </Fragment>
+  //   );
+  // });
 
-  const renMaj = maj.map((item) => {
-    return (
-      <Fragment>
-        <tr>
-          <td>{`${item.MAJOR_M}/${item.MAJOR_TOT}`}</td>
-        </tr>
-      </Fragment>
-    );
-  });
+  // const renMaj = maj.map((item) => {
+  //   return (
+  //     <Fragment>
+  //       <tr>
+  //         <td>{`${item.MAJOR_M}/${item.MAJOR_TOT}`}</td>
+  //       </tr>
+  //     </Fragment>
+  //   );
+  // });
   const renF = f.map((item) => {
     return (
       <Fragment>
         <tr>
+          <td>{item.SUB_NAME}</td>
           <td>{item.GRADE}</td>
           <td>{item.POINTS}</td>
           <td>{item.CREDITS}</td>
@@ -70,7 +71,7 @@ const Exams = (props) => {
       <div>
         <div class="container">
           <div class="row">
-            <div class="col-sm-24">
+            {/* <div class="col-sm-24">
               <Table className="table">
                 <thead>
                   <tr>
@@ -85,8 +86,8 @@ const Exams = (props) => {
 
                 <tbody>{renM1}</tbody>
               </Table>
-            </div>
-            <div class="col-sm-24">
+            </div> */}
+            {/* <div class="col-sm-24">
               <Table className="table">
                 <thead>
                   <tr>
@@ -95,8 +96,8 @@ const Exams = (props) => {
                 </thead>
                 <tbody>{renM2}</tbody>
               </Table>
-            </div>
-            <div class="col-sm-24">
+            </div> */}
+            {/* <div class="col-sm-24">
               <Table className="table">
                 <thead>
                   <tr>
@@ -106,8 +107,8 @@ const Exams = (props) => {
                 </thead>
                 <tbody>{renInt}</tbody>
               </Table>
-            </div>
-            <div class="col-sm-24">
+            </div> */}
+            {/* <div class="col-sm-24">
               <Table className="table">
                 <thead>
                   <tr>
@@ -116,11 +117,12 @@ const Exams = (props) => {
                 </thead>
                 <tbody>{renMaj}</tbody>
               </Table>
-            </div>
+            </div> */}
             <div class="col-sm-24">
               <Table className="table">
                 <thead>
                   <tr>
+                    <th>Subject</th>
                     <th>Grade</th>
                     <th>Points</th>
                     <th>Credits</th>

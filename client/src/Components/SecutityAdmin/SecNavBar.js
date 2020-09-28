@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Logo from "../logo.png";
 import "./SecNavBar.css";
-
+import { logoutUser } from "../../actions/authAction";
 const SecNavbar = () => {
   // window.addEventListener("scroll", () => {
   //   var header = document.querySelector("header");
   //   header.classList.toggle("scroll", window.scrollY > 0);
   // });
+
+  const handleLogout = (props) => {
+    props.logoutUser();
+  };
 
   return (
     <div>
@@ -26,9 +30,17 @@ const SecNavbar = () => {
           </li>
 
           <li>
-            <Link to="griev" smooth={true} duration={1000}>
+            {/* <Link to="griev" smooth={true} duration={1000}>
               <span className="middle-main">Sign Out</span>
-            </Link>
+            </Link> */}
+            <a
+              className="middle1"
+              style={({ float: "right" }, { fontSize: "25" })}
+              href="/security-login"
+              onClick={handleLogout}
+            >
+              Sign Out
+            </a>
           </li>
         </ul>
       </header>

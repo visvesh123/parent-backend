@@ -147,7 +147,6 @@ function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div>
           <RecordsTable />
-          <Button href="/security-portal">Back</Button>
         </div>
       </TabPanel>
     </div>

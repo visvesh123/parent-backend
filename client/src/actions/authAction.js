@@ -80,3 +80,27 @@ export const logoutUser = () => (dispatch) => {
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+
+// Security Portal-------------------------------------------------------------------
+export const secloginUser = (userData) => (dispatch) => {
+  axios
+    .post("/admin/security-login", userData)
+    .then((res) => {
+      // Save to localStorage
+      const { token } = res.data;
+      // Set token to ls
+      localStorage.setItem("jwtTokenAdmin", token);
+      // Set token to Auth header
+      setAuthToken(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
+    })
+    .catch((err) =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: "error",
+      })
+    );
+};

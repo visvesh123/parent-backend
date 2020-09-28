@@ -25,7 +25,7 @@ const securitySchema = new mongoose.Schema({
     required: true,
   },
   DATE: {
-    type: "String",
+    type: "Date",
     required: true,
   },
   BATCH: {

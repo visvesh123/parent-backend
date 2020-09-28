@@ -14,13 +14,13 @@ const Sec_Summary = (props) => {
   if (!props.sec[0]) return null;
   const items = props.sec[0];
   //console.log(items);
-  console.log(items[0].DATE);
+  // console.log(items[0].DATE);
   const ren = items.map((item, index) => {
     return (
       <tr>
         <th scope="row">{index}</th>
         <td>{item.MOVING}</td>
-        <td>{item.DATE}</td>
+        <td>{moment(item.DATE).format("MMMM Do YYYY, h:mm:ss a")}</td>
         <td>{item.REMARKS}</td>
       </tr>
     );

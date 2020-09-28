@@ -1,4 +1,4 @@
-export default (state = { griev: "Other", description: null }, action) => {
+export default (state = { griev: "Other", description: "" }, action) => {
   switch (action.type) {
     case "SEND_COMPLAINT":
       return {

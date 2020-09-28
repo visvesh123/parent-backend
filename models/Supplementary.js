@@ -11,9 +11,7 @@ const suppleSchema = new mongoose.Schema({
     type: "String",
     required: true,
   },
-  BRANCH: {
-    type: "String",
-  },
+
   SUB_CODE: {
     type: "String",
     required: true,
@@ -22,6 +20,15 @@ const suppleSchema = new mongoose.Schema({
   SUB_NAME: {
     type: "String",
     required: true,
+  },
+  GRADE: {
+    type: "String",
+  },
+  POINTS: {
+    type: "String",
+  },
+  CREDITS: {
+    type: "String",
   },
   SEM: {
     type: "String",

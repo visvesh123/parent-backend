@@ -1,18 +1,24 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { connect } from "react-redux";
+import {
+  sendComplaint,
+  fetchDescription,
+  fetchType,
+} from "../../actions/index";
 
-import Step1 from './Step1';
-import Step3 from './Step3';
-import Step4 from './Step4';
+import Step1 from "./Step1";
+import Step3 from "./Step3";
+import Step4 from "./Step4";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
   },
   button: {
     marginRight: theme.spacing(1),
@@ -24,24 +30,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Instructions','Grievance','Summary'];
+  return ["Instructions", "Grievance", "Summary"];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Step1/>;
+      return <Step1 />;
     case 1:
-      return <Step3/>;
+      return <Step3 />;
     case 2:
-      return <Step4/>;
+      return <Step4 />;
 
     default:
-      return 'Unknown step';
+      return "Unknown step";
   }
 }
 
-export default function HorizontalLinearStepper() {
+function HorizontalLinearStepper(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -89,15 +95,17 @@ export default function HorizontalLinearStepper() {
     setActiveStep(0);
   };
 
+  console.log(props);
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
-        //   if (isStepOptional(index)) {
-        //     labelProps.optional = <Typography variant="caption">Optional</Typography>;
-        //   }
+          //   if (isStepOptional(index)) {
+          //     labelProps.optional = <Typography variant="caption">Optional</Typography>;
+          //   }
           if (isStepSkipped(index)) {
             stepProps.completed = false;
           }
@@ -112,6 +120,12 @@ export default function HorizontalLinearStepper() {
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>
+              {/* {props.sendComplaint({
+                type: !props.complaint.griev ? "" : props.complaint.griev,
+                desc: !props.complaint.description
+                  ? ""
+                  : props.complaint.description,
+              })} */}
               <h3>Submitted Succesfully</h3>
             </Typography>
             {/* <Button onClick={handleReset} className={classes.button}>
@@ -120,9 +134,15 @@ export default function HorizontalLinearStepper() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <Typography className={classes.instructions}>
+              {getStepContent(activeStep)}
+            </Typography>
             <div>
-              <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+              <Button
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                className={classes.button}
+              >
                 Back
               </Button>
               {/* {isStepOptional(activeStep) && (
@@ -142,7 +162,7 @@ export default function HorizontalLinearStepper() {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === steps.length - 1 ? 'Submit' : 'Continue'}
+                {activeStep === steps.length - 1 ? "Submit" : "Continue"}
               </Button>
             </div>
           </div>
@@ -151,3 +171,15 @@ export default function HorizontalLinearStepper() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    complaint: state.complaint,
+    student: state.student,
+  };
+};
+export default connect(null, {
+  sendComplaint: sendComplaint,
+  fetchDescription: fetchDescription,
+  fetchType: fetchType,
+})(HorizontalLinearStepper);

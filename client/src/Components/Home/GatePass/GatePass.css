@@ -26,3 +26,9 @@
 .visitor-pass .ant-form {
   padding: 20px 10px;
 }
+
+@media all and (max-width: 750px) {
+  .vpass {
+    padding-left: 100px;
+  }
+}

@@ -11,6 +11,9 @@ const Supplementary = (props) => {
       <tr>
         <td scope="row">{item.SUB_NAME}</td>
         <td>{item.SUB_CODE}</td>
+        <td>{item.GRADE}</td>
+        <td>{item.POINTS}</td>
+        <td>{item.CREDITS}</td>
         <td>Backlog</td>
       </tr>
     );
@@ -23,10 +26,19 @@ const Supplementary = (props) => {
           <thead>
             <tr>
               <th scope="col" class="col-md-auto">
-                Subject
+                SUBJECT
               </th>
               <th scope="col" class="col-md-auto">
-                Course Code
+                COURSE CODE
+              </th>
+              <th scope="col" class="col-md-auto">
+                GRADE
+              </th>
+              <th scope="col" class="col-md-auto">
+                POINTS
+              </th>
+              <th scope="col" class="col-md-auto">
+                CREDITS
               </th>
               <th scope="col" class="col-md-auto">
                 Status

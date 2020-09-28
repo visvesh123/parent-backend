@@ -25,7 +25,9 @@ import GradesTable from "./Components/Admin/GradesTable";
 import AttendanceTable from "./Components/Admin/AttandanceTable";
 import ViewNoti from "./Components/Admin/ViewNoti";
 import VerticalTabs from "./Components/SecutityAdmin/SecHome";
-
+import SecLogin from "./Components/SecutityAdmin/SecLogin";
+import Main from "./Components/NavBar/Hamburger";
+import Example from "./Components/NavBar/test";
 import { store } from "./index";
 function App() {
   return (
@@ -38,9 +40,9 @@ function App() {
         <Route exact path="/login" component={NormalLoginForm} />
         <PrivateRoute exact path="/summary" component={Sec_Summary} />
         <Route exact path="/reset/:token" component={ResetPassword} />
-
-        <Route exact path="/security-portal" component={VerticalTabs} />
-
+        {/* <Route exact path="/ham" component={Example} /> */}
+        <PrivateRoute exact path="/security-portal" component={VerticalTabs} />
+        <Route exact path="/security-login" component={SecLogin} />
         {/* Admin */}
         <Route exact path="/upload" component={Upload} />
         <Route exact path="/exams" component={PostExams} />

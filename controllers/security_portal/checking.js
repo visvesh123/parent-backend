@@ -35,7 +35,7 @@ const searchStudent = (req, res, next) => {
 };
 
 const addChecking = (req, res) => {
-  const test = moment(Date.now()).format("MMMM Do YYYY, h:mm:ss a");
+  const test = Date.now();
   //   if (req.data.length == 0) {
   //     return res.json({
   //       msg: "Not found",

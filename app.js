@@ -31,7 +31,7 @@ const Attendance = require("./models/Attendance");
 // import security from "./models/security";
 // import Attendance from "./models/Attendance";
 // import { Minor2, Minor1 } from "./models/minor";
-// import { Supplementary } from "./models/Supplementary";
+const { Supplementary } = require("./models/Supplementary");
 const CGPA = require("./models/CGPA");
 
 const { Users } = require("./models/User");
@@ -93,10 +93,11 @@ app.use("/admin/", AdminRoutes);
 // Supplementary.create({
 //   HTNO: "32",
 //   STUDENT_NAME: "dscd",
-//   BRANCH: "fd",
 //   SUB_CODE: "SDSS",
-
 //   SUB_NAME: "2",
+//   GRADE: "dsd",
+//   POINTS: "22",
+//   CREDITS: "43",
 //   SEM: "Failed",
 //   BATCH: "cx",
 // });
@@ -143,11 +144,11 @@ app.use("/admin/", AdminRoutes);
 //EID, NAME, EMAIL, PASSWORD, TYPE;
 
 // Users.create({
-//   EID: "fdc",
-//   NAME: "dsf",
-//   EMAIL: "cx",
+//   EID: "101",
+//   NAME: "Security",
+//   EMAIL: "",
 //   PASSWORD: "fdc",
-//   TYPE: "cxcx",
+//   TYPE: "SECURITY_ADMIN",
 // });
 // app.get('/m1',(req,res)=>{
 //     Minor1.find({},(err,m1)=>{

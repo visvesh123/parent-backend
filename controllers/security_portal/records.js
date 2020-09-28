@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const security = require("../../models/security");
 const Login = require("../../models/login");
-
+const { use } = require("../../routes/admin");
+const moment = require("moment");
 const allRecords = (req, res) => {
   //   console.log(req.body.username);
   security
@@ -13,6 +14,13 @@ const allRecords = (req, res) => {
 
         message: `All Records`,
         user: user,
+        // HTNO: user.HTNO,
+        // STUDENT_NAME: user.STUDENT_NAME,
+        // BRANCH: user.BRANCH,
+        // MOVING: user.MOVING,
+        // REMARKS: user.REMARKS,
+        // DATE: moment(user.DATE).format("MMMM Do YYYY, h:mm:ss a"),
+        // BATCH: user.BATCH,
       });
     })
     .catch((err) => {

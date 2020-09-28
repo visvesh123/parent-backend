@@ -47,7 +47,7 @@ const RecordsTable = (props) => {
     },
   ];
 
-  const data = [];
+  // const data = [];
   // for (let i = 0; i < 100; i++) {
   //   data.push({
   //     key: i,
@@ -55,14 +55,23 @@ const RecordsTable = (props) => {
   //     age: 32,
   //     address: `London, Park Lane no. ${i}`,
   //   });
-  console.log(props.records);
+  console.log(props.records[0]);
+  if (!props.records) {
+    return null;
+  }
+
+  const data = props.records[0];
+  let arr = new Array();
+  arr.map((item, index) => {
+    console.log(item);
+  });
   return (
     <div>
       <h4>Student In-Out</h4>
       <Table
         className="margin-table"
         columns={columns}
-        dataSource={props.records[0]}
+        dataSource={data}
         pagination={{ pageSize: 50 }}
         scroll={{ y: 500 }}
       />

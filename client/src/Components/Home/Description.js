@@ -58,7 +58,7 @@ const Desc = (props) => {
       : "-";
   // const reason = ele.MOVING === "IN" ? "-" : ele.REMARKS;
   const reason = ele.REMARKS;
-  console.log(moment());
+  // console.log(moment());
   return (
     <div>
       <Descriptions title="Description">
@@ -66,7 +66,7 @@ const Desc = (props) => {
         <Descriptions.Item
           label={ele.MOVING === "OUT" ? "Checked Out at" : "Checked In at"}
         >
-          {ele.DATE}
+          {moment(ele.DATE).format("MMMM Do YYYY, h:mm:ss a")}
         </Descriptions.Item>
         <Descriptions.Item label="Duration of recent outing">
           {duration}{" "}

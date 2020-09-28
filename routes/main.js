@@ -22,6 +22,7 @@ const { Complaint } = require("../controllers/Complaint");
 const { Supp } = require("../controllers/Supplementary");
 const { internal } = require("../controllers/internal_Lab");
 const { Major } = require("../controllers/Major");
+const { Mail } = require("../controllers/Mail");
 
 // import { M1, M2 }=  require("../controllers/Minor";
 // import { Fin, finCGPA } from "../controllers/final";
@@ -58,11 +59,14 @@ router.get("/cgpa", verifyToken, finCGPA);
 router.post("/login", loginUser);
 router.post("/register", createUser);
 router.get("/profile", verifyToken, seeUser);
+
+//IN OUT and Security
 router.get("/security", verifyToken, InOut);
 router.get("/attendance/:semester", verifyToken, Attend);
 
+// Complaint & Notifications
 router.get("/notifications", Noti);
-router.post("/complaint", verifyToken, Complaint);
+router.post("/complaint", Complaint);
 
 // Forgot password routes
 router.post("/forgotpassword", ForgetPassword);

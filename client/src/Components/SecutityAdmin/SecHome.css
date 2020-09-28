@@ -19,3 +19,6 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+.MuiTabs-root {
+  overflow: visible;
+}
