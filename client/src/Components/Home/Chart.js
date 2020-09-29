@@ -16,7 +16,7 @@ const Chart_CGPA = (props) => {
   return (
     <div>
       <Chart
-        width={"600px"}
+        width={"500px"}
         height={"400px"}
         chartType="LineChart"
         loader={<div>Loading Chart</div>}

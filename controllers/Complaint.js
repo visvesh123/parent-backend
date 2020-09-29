@@ -1,8 +1,18 @@
 const nodemailer = require("nodemailer");
 
 function Complaint(req, res) {
+  const det = [
+    { field: "Applier Name", value: req.body.father },
+    { field: "Student Name", value: req.body.name },
+    { field: "ID No", value: req.body.id },
+    { field: "Batch", value: req.body.batch },
+    { field: " Parent Mobile number", value: req.body.mobile },
+    { field: " Parent Email", value: req.body.email },
+  ];
+
   const type = req.body.type;
   const desc = req.body.desc;
+  const mail = req.body.mail;
 
   let transporter = nodemailer.createTransport({
     // host: 'visveshnaraharisetty@gmail.com',
@@ -17,18 +27,19 @@ function Complaint(req, res) {
       rejectUnauthorized: false,
     },
   });
-
+  // console.log(mail);
+  // console.log(det);
   // setup email data with unicode symbols
   let mailOptions = {
     from: "mecparentsportal@gmail.com", // sender address
-    to: "visveshnaraharisetty@gmail.com, visvesh18568@mechyd.ac.in", // list of receivers
-    subject: `${type}`, // Subject line
-    text: `${desc}`, // plain text body
-    //   html: "hello"
+    to: mail, // list of receivers
+    subject: ` Grievance type:  ${type}`, // Subject line
+    text: `Description : ${desc}`, // plain text body
+
     attachments: [
       {
-        filename: "text1.txt",
-        content: "18888883!",
+        filename: "applier_details.txt",
+        content: `${det[0].field} : ${det[0].value}  ${det[1].field} : ${det[1].value}    ${det[2].field} : ${det[2].value}  ${det[3].field} : ${det[3].value}     ${det[4].field} : ${det[4].value}    ${det[5].field} : ${det[5].value}     `,
       },
     ],
   };

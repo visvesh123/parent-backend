@@ -13,7 +13,7 @@ const RecordsTable = (props) => {
     {
       title: "HTNO",
       dataIndex: "HTNO",
-      width: 100,
+      width: 50,
     },
     {
       title: "STUDENT_NAME",
@@ -33,7 +33,7 @@ const RecordsTable = (props) => {
     {
       title: "REMARKS",
       dataIndex: "REMARKS",
-      width: 100,
+      width: 70,
     },
     {
       title: "DATE",
@@ -69,7 +69,8 @@ const RecordsTable = (props) => {
     <div>
       <h4>Student In-Out</h4>
       <Table
-        className="margin-table"
+        // style={{ margin: 30 + "px" }}
+        className="record-table"
         columns={columns}
         dataSource={data}
         pagination={{ pageSize: 50 }}

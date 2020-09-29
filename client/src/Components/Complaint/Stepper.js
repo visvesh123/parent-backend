@@ -11,7 +11,7 @@ import {
   fetchDescription,
   fetchType,
 } from "../../actions/index";
-
+import Submit from "./submit";
 import Step1 from "./Step1";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
@@ -118,21 +118,17 @@ function HorizontalLinearStepper(props) {
       </Stepper>
       <div>
         {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>
-              {props.sendComplaint({
-                type: !props.complaint.griev ? "" : props.complaint.griev,
-                desc: !props.complaint.description
-                  ? ""
-                  : props.complaint.description,
-              })}
-              <h3>Submitted Succesfully</h3>
-            </Typography>
-            {/* <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button> */}
-          </div>
+          <Submit />
         ) : (
+          // <div>
+          //   <Typography className={classes.instructions}>
+
+          //     {/* <h3>Submitted Succesfully</h3> */}
+          //   </Typography>
+          //   {/* <Button onClick={handleReset} className={classes.button}>
+          //     Reset
+          //   </Button> */}
+          // </div>
           <div>
             <Typography className={classes.instructions}>
               {getStepContent(activeStep)}

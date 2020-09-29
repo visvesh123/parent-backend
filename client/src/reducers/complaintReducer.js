@@ -1,4 +1,7 @@
-export default (state = { griev: "Other", description: "" }, action) => {
+export default (
+  state = { griev: "Other", description: "", mail: [] },
+  action
+) => {
   switch (action.type) {
     case "SEND_COMPLAINT":
       return {
@@ -25,7 +28,11 @@ export default (state = { griev: "Other", description: "" }, action) => {
         ...state,
         description: action.payload.desc,
       };
-
+    case "FETCH_MAIL":
+      return {
+        ...state,
+        mail: action.payload.mail,
+      };
     default:
       return state;
   }

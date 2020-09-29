@@ -163,6 +163,15 @@ export const fetchType = (griev) => {
   };
 };
 
+export const fetchMail = (mail) => {
+  return {
+    type: "FETCH_MAIL",
+    payload: {
+      mail: mail,
+    },
+  };
+};
+
 export const fetchDescription = (desc) => {
   return {
     type: "FETCH_DESC",
