@@ -13,6 +13,8 @@ import Gif from "../Loading/gif";
 import ScrollAnimation from "react-animate-on-scroll";
 import { fetchStudent } from "./../../actions/index";
 import { connect } from "react-redux";
+import { Layout, Col } from "antd";
+
 const Home = (props) => {
   const [loading, setLoading] = useState(true);
 
@@ -44,20 +46,24 @@ const Home = (props) => {
     <div id="home" className="all">
       {/* {gif && <Gif/>} */}
       <div className="box">
-        <Navbar />
-        <h1 className="name"> {name}</h1>
-        <h1 className="id">{id}</h1>
-        <Notifications />
+        <Layout>
+          <Col span={24}>
+            <Navbar />
+            <h1 className="name"> {name}</h1>
+            <h1 className="id">{id}</h1>
+            <Notifications />
 
-        <RegistrationForm />
+            <RegistrationForm />
 
-        <Grade_Sec />
+            <Grade_Sec />
 
-        <Attendance />
+            <Attendance />
 
-        <In_Sec />
+            <In_Sec />
 
-        <Griev />
+            <Griev />
+          </Col>
+        </Layout>
       </div>
       <Link to="notification" smooth={true} duration={1000} className="sticky">
         Announcements

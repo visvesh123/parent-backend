@@ -44,7 +44,6 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15p
 .login-form-button {
   width: 100%;
   border-radius: 5px;
-  
 }
 .borders {
   margin-left: 45px;
@@ -58,7 +57,8 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15p
 }
 
 .loginpart {
-  padding-left: 6em;
+  padding-left: 3em;
+  padding-right: 3em;
   padding-top: 6em;
 }
 .loginpart h2 {
@@ -80,6 +80,6 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15p
   padding: 5px;
 }
 
-.footer{
-  margin-top: 30px
+.footer {
+  margin-top: 30px;
 }

@@ -69,6 +69,7 @@ class NormalLoginForm extends React.Component {
 
     //const { Option } = Select;
 
+    const { Sider } = Layout;
     return (
       <Layout>
         <img
@@ -77,96 +78,97 @@ class NormalLoginForm extends React.Component {
           class="navbar-brand"
           width="280"
         />
-
-        <Content className="borders">
-          <Row>
-            <Col span={12}>
-              <Carousel autoplay>
-                <div>
-                  <img src={Slide1} alt="Slide1" />
-                </div>
-                <div>
-                  <img src={Slide2} alt="Slide2" />
-                </div>
-                <div>
-                  <img src={Slide3} alt="Slide3" />
-                </div>
-              </Carousel>
-            </Col>
-            <Col span={12} className="loginpart">
-              <h2>Welcome to Parents Portal!</h2>
-              <div className="login-register">
-                <Tabs>
-                  <TabPane tab="Login" key="1">
-                    <Form
-                      name="normal_login"
-                      className="login-form"
-                      initialValues={{
-                        remember: false,
-                      }}
-                      onFinish={this.Finish}
-                    >
-                      <br />
-                      <br />
-                      <br />
-
-                      <Form.Item
-                        name="username"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your Username!",
-                          },
-                        ]}
+        <Layout>
+          <Content className="borders">
+            <Row>
+              <Col xs={24} md={12}>
+                <Carousel autoplay>
+                  <div>
+                    <img src={Slide1} alt="Slide1" />
+                  </div>
+                  <div>
+                    <img src={Slide2} alt="Slide2" />
+                  </div>
+                  <div>
+                    <img src={Slide3} alt="Slide3" />
+                  </div>
+                </Carousel>
+              </Col>
+              <Col xs={24} md={12} className="loginpart">
+                <h2>Welcome to Parents Portal!</h2>
+                <div className="login-register">
+                  <Tabs>
+                    <TabPane tab="Login" key="1">
+                      <Form
+                        name="normal_login"
+                        className="login-form"
+                        initialValues={{
+                          remember: false,
+                        }}
+                        onFinish={this.Finish}
                       >
-                        <Input
-                          prefix={
-                            <UserOutlined className="site-form-item-icon" />
-                          }
-                          placeholder="Student ID"
-                        />
-                      </Form.Item>
+                        <br />
+                        <br />
+                        <br />
 
-                      <Form.Item
-                        name="password"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your Password!",
-                          },
-                        ]}
-                      >
-                        <Input
-                          prefix={
-                            <LockOutlined className="site-form-item-icon" />
-                          }
-                          type="password"
-                          placeholder="Password"
-                        />
-                      </Form.Item>
-
-                      <div className="alert-danger">
-                        {this.props.error.message}
-                      </div>
-                      <Form.Item>
-                        <Button
-                          type="primary"
-                          htmlType="submit"
-                          className="login-form-button"
+                        <Form.Item
+                          name="username"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your Username!",
+                            },
+                          ]}
                         >
-                          Log in
-                        </Button>
-                      </Form.Item>
-                    </Form>
-                  </TabPane>
-                  <TabPane tab="Forgot Password" key="2">
-                    <Reset />
-                  </TabPane>
-                </Tabs>
-              </div>
-            </Col>
-          </Row>
-        </Content>
+                          <Input
+                            prefix={
+                              <UserOutlined className="site-form-item-icon" />
+                            }
+                            placeholder="Student ID"
+                          />
+                        </Form.Item>
+
+                        <Form.Item
+                          name="password"
+                          rules={[
+                            {
+                              required: true,
+                              message: "Please input your Password!",
+                            },
+                          ]}
+                        >
+                          <Input
+                            prefix={
+                              <LockOutlined className="site-form-item-icon" />
+                            }
+                            type="password"
+                            placeholder="Password"
+                          />
+                        </Form.Item>
+
+                        <div className="alert-danger">
+                          {this.props.error.message}
+                        </div>
+                        <Form.Item>
+                          <Button
+                            type="primary"
+                            htmlType="submit"
+                            className="login-form-button"
+                          >
+                            Log in
+                          </Button>
+                        </Form.Item>
+                      </Form>
+                    </TabPane>
+                    <TabPane tab="Forgot Password" key="2">
+                      <Reset />
+                    </TabPane>
+                  </Tabs>
+                </div>
+              </Col>
+            </Row>
+          </Content>
+        </Layout>
         <footer className="footer">
           <p style={{ textAlign: "center", marginBottom: "25px" }}>
             © 2020 Mahindra University, All Rights Reserved.
