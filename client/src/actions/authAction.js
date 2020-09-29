@@ -34,7 +34,7 @@ export const loginUser = (userData) => (dispatch) => {
     .catch((err) =>
       dispatch({
         type: "GET_ERRORS",
-        payload: "error",
+        payload: "Incorrect details!",
       })
     );
 };

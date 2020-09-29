@@ -48,14 +48,9 @@ const Desc = (props) => {
     }
   }
   getSafe(() => ele.MOVING, "OUT");
-
+  const date = getSafe(() => ele.MOVING, new Date());
   const duration =
-    ele.MOVING === "IN"
-      ? timeDiffCalc(
-          new Date(props.items[0].DATE),
-          new Date(props.items[1].DATE)
-        )
-      : "-";
+    ele.MOVING === "IN" ? timeDiffCalc(new Date(date), new Date(date)) : "-";
   // const reason = ele.MOVING === "IN" ? "-" : ele.REMARKS;
   const reason = ele.REMARKS;
   // console.log(moment());

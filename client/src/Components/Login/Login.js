@@ -145,10 +145,15 @@ class NormalLoginForm extends React.Component {
                             placeholder="Password"
                           />
                         </Form.Item>
+                        {this.props.error == "Incorrect details!" && (
+                          <div
+                            className="alert-danger"
+                            style={{ margin: 20 + "px" }}
+                          >
+                            Incorrect details!
+                          </div>
+                        )}
 
-                        <div className="alert-danger">
-                          {this.props.error.message}
-                        </div>
                         <Form.Item>
                           <Button
                             type="primary"

@@ -41,37 +41,37 @@ function SimpleSelect(props) {
     setType(event.target.value);
   };
 
-  // if (type == "Ragging") {
-  //   mail = [...mail, "venugopala.dandu@mahindrauniversity.edu.in"];
-  // } else if (type == "Academic Probations") {
-  //   mail = [...mail, "deanacademics@mahindrauniversity.edu.in"];
-  // } else if (type == "Canteen/Transport/Cleanliness") {
-  //   mail = [...mail, ""];
-  // } else if (type == "Hostel") {
-  //   mail = [...mail, "venugopala.dandu@mahindrauniversity.edu.in"];
-  // } else if (type == "IT") {
-  //   mail = [...mail, "naveen@mahindrauniversity.edu.in"];
-  // } else if (type == "Finance") {
-  //   mail = [...mail, "ranjan.sardar@mahindrauniversity.edu.in"];
-  // } else if (type == "Other") {
-  //   mail = [...mail];
-  // }
-
   if (type == "Ragging") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "venugopala.dandu@mahindrauniversity.edu.in"];
   } else if (type == "Academic Probations") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "deanacademics@mahindrauniversity.edu.in"];
   } else if (type == "Canteen/Transport/Cleanliness") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "sudhkarreddy.v@mechyd.ac.in"];
   } else if (type == "Hostel") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "venugopala.dandu@mahindrauniversity.edu.in"];
   } else if (type == "IT") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "naveen@mahindrauniversity.edu.in"];
   } else if (type == "Finance") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail, "ranjan.sardar@mahindrauniversity.edu.in"];
   } else if (type == "Other") {
-    mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+    mail = [...mail];
   }
+
+  // if (type == "Ragging") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "Academic Probations") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "Canteen/Transport/Cleanliness") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "Hostel") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "IT") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "Finance") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // } else if (type == "Other") {
+  //   mail = ["visveshnaraharisetty@gmail.com", "visvesh18568@mechyd.ac.in"];
+  // }
 
   props.fetchMail(mail);
   props.fetchType(type);
