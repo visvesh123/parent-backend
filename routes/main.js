@@ -1,7 +1,7 @@
 // import express from "express";
 const express = require("express");
 const { M1, M2 } = require("../controllers/Minor");
-const { Fin, finCGPA } = require("../controllers/final");
+const { Fin, finCGPA, FinDel } = require("../controllers/final");
 const { InOut } = require("../controllers/InOut");
 const { Attend } = require("../controllers/Attend");
 const verifyToken = require("../middleware/verifyToken");
@@ -54,6 +54,7 @@ router.get("/supplementary/:semester", verifyToken, Supp);
 router.get("/internal/:semester", verifyToken, internal);
 router.get("/major/:semester", verifyToken, Major);
 router.get("/cgpa", verifyToken, finCGPA);
+// router.delete("/del", FinDel);
 
 // parent login
 router.post("/login", loginUser);

@@ -44,6 +44,17 @@ function Fin(req, res) {
     });
 }
 
+function FinDel(req, res) {
+  finalGrade
+    .deleteMany({ HTNO: { $regex: "17XJ", $options: "i" } })
+    .then(function () {
+      console.log("Data deleted"); // Success
+    })
+    .catch(function (error) {
+      console.log(error); // Failure
+    });
+}
+
 function finCGPA(req, res) {
   CGPA.find({
     $and: [{ HTNO: req.decoded.username }],
@@ -68,4 +79,5 @@ function finCGPA(req, res) {
 module.exports = {
   Fin: Fin,
   finCGPA: finCGPA,
+  FinDel: FinDel,
 };
