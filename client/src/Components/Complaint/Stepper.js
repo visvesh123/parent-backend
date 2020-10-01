@@ -95,7 +95,7 @@ function HorizontalLinearStepper(props) {
     setActiveStep(0);
   };
 
-  console.log(props.complaint);
+  // console.log(props.complaint);
 
   return (
     <div className={classes.root}>
@@ -169,7 +169,7 @@ function HorizontalLinearStepper(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     complaint: state.complaint,
     student: state.student,

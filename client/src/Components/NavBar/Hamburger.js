@@ -9,16 +9,19 @@ class Hamburger extends React.Component {
     this.state = {
       menuOpen: false,
     };
+    this.handleLinkClick = this.handleLinkClick.bind(this);
+    this.handleMenuClick = this.handleMenuClick.bind(this);
   }
 
   handleMenuClick() {
+    // console.log("Byee");
     this.setState({ menuOpen: !this.state.menuOpen });
   }
 
-  //   handleLinkClick() {
-  //     this.setState({ menuOpen: false });
-
-  //   }
+  handleLinkClick() {
+    // console.log("Hello");
+    this.setState({ menuOpen: false });
+  }
 
   render() {
     const styles = {
@@ -58,8 +61,15 @@ class Hamburger extends React.Component {
     ];
     const menuItems = menu.map((item, index) => {
       return (
-        <MenuItem key={index} delay={`${index * 0.1}s`} onClick={() => {}}>
-          <Link to={item.link} smooth={true} duration={1000}>
+        <MenuItem key={index} delay={`${index * 0.1}s`}>
+          <Link
+            to={item.link}
+            smooth={true}
+            duration={1000}
+            onClick={() => {
+              this.handleLinkClick();
+            }}
+          >
             <span className="middle-main">{item.val}</span>
           </Link>
         </MenuItem>

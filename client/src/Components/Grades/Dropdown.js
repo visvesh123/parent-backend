@@ -40,7 +40,7 @@ const Dropdown = (props) => {
   };
 
   function handleChange(value) {
-    console.log(`selected ${value}`);
+    // console.log(`selected ${value}`);
     setOpt(value);
     props.fetchMinor1(value);
     props.fetchMinor2(value);
