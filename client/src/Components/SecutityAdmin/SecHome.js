@@ -116,8 +116,8 @@ function VerticalTabs(props) {
         </Descriptions.Item>
        
         <Descriptions.Item label="Picture">
-        {/* <img src={`'data:image/jpeg;base64,${props.image.img}'`}/> */}
-        <img src="/18XJ1A0537.JPG" />
+         <img src= {`https://musecportal.s3.ap-south-1.amazonaws.com/${items.batch}/${items.id}.JPG`} alt="new"/> 
+       
         </Descriptions.Item>
       </Descriptions>
     </div>

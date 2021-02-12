@@ -18,8 +18,8 @@ const SecForm = (props) => {
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
-
-    props.fetchsecUsername(event.target.value.slice(0, 2) + "XJ1A0" + event.target.value.slice(2));
+let x =event.target.value.slice(0, 2) + "XJ1A0" + event.target.value.slice(2)
+    props.fetchsecUsername(event.target.value);
 
   };
 
@@ -36,8 +36,8 @@ const SecForm = (props) => {
         onSearch={(value) => {
         let y =  concatanate(value)
         
-        // console.log(y)
-          props.fetchsecDetails({ username: y });
+        console.log(y)
+          props.fetchsecDetails({ username: y  });
           props.fetchLatestRecord(y)
           props.fetchImage("2018" , y)
         }}

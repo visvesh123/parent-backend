@@ -7,7 +7,7 @@ const searchStudent = (req, res, next) => {
   Login.find({ HTNO: req.body.username })
     .then((user) => {
       req.data = user;
-      // console.log(req.body.username);
+       console.log(req.body.username);
       //   console.log(req.data);
       //   if (user.length == 0) {
       //     return res.json({
