@@ -2,7 +2,7 @@ import React from "react";
 import "antd/dist/antd.css";
 import { message, Button, Space } from "antd";
 import { connect } from "react-redux";
-import { addCheckingDetails } from "../../actions/index";
+import { addCheckingDetails , sendMessageSecurity } from "../../actions/index";
 message.config({
   top: 100,
   duration: 2,
@@ -15,13 +15,14 @@ const SuccessButton = (props) => {
 
   const success = () => {
     console.log(items.remarks);
+    props.sendMessageSecurity();
     props.addCheckingDetails({
-      username: items.username,
+      username: items.username.slice(0, 2) + "XJ1A0" + items.username.slice(2) ,
       MOVING: items.inout,
       REMARKS: !items.remarks ? "-" : items.remarks,
     });
     message.success("Successfull!");
-    window.location.reload(false);
+    // window.location.reload(false);
   };
   return (
     <Space>
@@ -37,5 +38,5 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, {
-  addCheckingDetails: addCheckingDetails,
+  addCheckingDetails: addCheckingDetails, sendMessageSecurity:sendMessageSecurity
 })(SuccessButton);

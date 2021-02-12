@@ -23,6 +23,9 @@ const {
   secloginUser,
 } = require("../controllers/security_portal/login");
 
+const message = require('../controllers/security_portal/message');
+const latestRecord = require('../controllers/security_portal/latestCheckout');
+
 const router = express.Router();
 
 router.post("/uploads", upload.single("file"), Upload);
@@ -37,6 +40,8 @@ router.post("/security-register", seccreateUser);
 router.post("/addchecking", searchStudent, addChecking);
 router.post("/searchDisplay", searchDisplay);
 router.get("/allRecords", allRecords);
+router.get("/sendMessage", message)
+router.get('/latestRecord/:htno', latestRecord)
 // router.post("/AdminLogin", AdminUser);
 
 // export default router;

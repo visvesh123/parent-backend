@@ -36,7 +36,13 @@ const Home = (props) => {
 
   if (gif) return <Gif />;
   // console.log(props.student[0]);
-
+  function getSafe(fn, defaultVal) {
+    try {
+      return fn();
+    } catch (e) {
+      return defaultVal;
+    }
+  }
   const item = props.student[0];
   //console.log(item[0].STUDENT_NAME);
   const name = item[0].STUDENT_NAME;

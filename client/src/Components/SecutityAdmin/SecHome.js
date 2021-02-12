@@ -6,6 +6,10 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+
 import SecNavBar from "./SecNavBar";
 import SecForm from "./Form";
 import RadioButtons from "./RadioButton";
@@ -14,6 +18,8 @@ import RecordsTable from "./RecordsTable";
 import SuccessButton from "./SecSubmitButton";
 import { connect } from "react-redux";
 import { fetchsecRemarks } from "../../actions/index";
+
+import ReasonSelect from './ReasonSelect'
 const style = { background: "#ffffff", padding: "8px 0" };
 
 function TabPanel(props) {
@@ -76,7 +82,7 @@ function VerticalTabs(props) {
   console.log(remarks);
   // console.log(props.sec);
   const items = props.sec[0];
-
+  console.log(props.image[0])
   // console.log(items);
   // if (items != null) {
   //   setId(items.id);
@@ -94,9 +100,9 @@ function VerticalTabs(props) {
         bordered
         column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
       >
-        <Descriptions.Item label="Student ID">{items.id}</Descriptions.Item>
+        <Descriptions.Item label="Student ID"><b>{items.id}</b></Descriptions.Item>
         <Descriptions.Item label="Student Name">
-          {items.s_name}
+         <b>{items.s_name}</b>
         </Descriptions.Item>
         <Descriptions.Item label="Student_phone">
           {items.s_mobile}
@@ -105,10 +111,14 @@ function VerticalTabs(props) {
         <Descriptions.Item label="Father Name">
           {items.f_name}
         </Descriptions.Item>
-        <Descriptions.Item label="Father phone">
-          {items.par_mobile}
+        <Descriptions.Item label="Parent Email">
+          {items.par_email}
         </Descriptions.Item>
-        <Descriptions.Item label="Picture"></Descriptions.Item>
+       
+        <Descriptions.Item label="Picture">
+        {/* <img src={`'data:image/jpeg;base64,${props.image.img}'`}/> */}
+        <img src="/18XJ1A0537.JPG" />
+        </Descriptions.Item>
       </Descriptions>
     </div>
   );
@@ -133,12 +143,21 @@ function VerticalTabs(props) {
             <div>
               <SecForm />
               <RadioButtons />
-              <Input
+              {/* <Input
                 placeholder="Reason"
                 value={remarks}
                 onChange={handleRem}
-              />
+              /> */}
+
+             
             </div>
+            <Col flex={3}>
+            <FormLabel component="legend">
+          <strong>  Reasons : </strong>
+        </FormLabel>
+            <ReasonSelect/>
+            </Col>
+           
             <SuccessButton />
           </Col>
           <Col flex={2}>{desc}</Col>
@@ -156,6 +175,7 @@ function VerticalTabs(props) {
 const mapStateToProps = (state) => {
   return {
     sec: state.sec,
+    image : state.image
   };
 };
 

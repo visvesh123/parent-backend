@@ -1,10 +1,4 @@
-// import express from "express";
-// import mongoose from "mongoose";
-// import path from "path";
-// import cors from "cors";
-// import bodyParser from "body-parser";
-// import morgan from "morgan";
-// import config from "./config";
+
 const config = require("./config");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -14,6 +8,7 @@ const bodyParser = require("body-parser");
 // const morgan = require("morgan");
 const nodemailer = require("nodemailer");
 const methodOverride = require("method-override");
+const AWS = require('aws-sdk');
 
 require("dotenv").config();
 
@@ -45,7 +40,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(morgan("dev"));
 app.use(bodyParser.json());
 
-const { MONGO_URI, MONGO_DB_NAME } = config;
+const { MONGO_URI, MONGO_DB_NAME ,accessKeyId, secretAccessKey ,BUCKET } = config;
+
+AWS.config.update({
+  accessKeyId: accessKeyId,
+  secretAccessKey: secretAccessKey
+
+})
+
+let s3 = new AWS.S3()
+
 
 mongoose
   .connect(MONGO_URI, {
@@ -58,6 +62,23 @@ mongoose
 
 app.use("/portal/", MainRoutes);
 app.use("/admin/", AdminRoutes);
+//HTNO,STUDENT_NAME, SUB_CODE,SUB_NAME,LEC_P,LEC_TOT,LAB_P,LAB_TOT, TUT_P,TUT_TOT,SEC_FIRST ,SEC,SEM,BATCH
+// Attendance.create({
+//   HTNO:"szc",
+//   STUDENT_NAME:"ss",
+//   SUB_CODE:"sscdc",
+//   SUB_NAME:"sc",
+//   LEC_P :"xx",
+//   LEC_TOT:"xc",
+//   LAB_P: "cs",
+//   LAB_TOT:"ssc",
+//   TUT_P:"zxc",
+//   TUT_TOT:"sc",
+//   SEC_FIRST:"c",
+//   SEC:"fc",
+//   SEM:"cx",
+//   BATCH:'xxc'
+// })
 
 // Notification.create({
 //   STATUS: "c",
@@ -201,6 +222,40 @@ app.use("/admin/", AdminRoutes);
 //   SEM: "fssd",
 //   BATCH: "sc",
 // });
+
+app.get("/s3/:folder/:id", (req,res)=>{
+  async function getImage(){
+    const data =  s3.getObject(
+      {
+          Bucket: BUCKET ,
+          Key: `${req.params.folder}/${req.params.id}.JPG` 
+        }
+      
+    ).promise();
+    return data;
+  }
+
+  function encode(data){
+    let buf = Buffer.from(data);
+    let base64 = buf.toString('base64'); 
+    return base64
+    }
+
+    getImage()
+    .then((img)=>{
+    //  let image="<img src='data:image/jpeg;base64," + encode(img.Body) + "'" + "/>";
+    //  let startHTML="<html><body></body>";
+    //  let endHTML="</body></html>";
+    //  let html=startHTML + image + endHTML;
+    //  res.send(html)
+    const x = encode(img.Body)
+    res.json({
+      img : x
+    })
+     }).catch((e)=>{
+           res.send(e)
+     })
+})
 
 app.get("/users", (req, res) => {
   Login.find({}, (err, login) => {

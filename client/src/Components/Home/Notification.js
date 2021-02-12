@@ -37,7 +37,14 @@ class Notifications extends Component {
         <div className="signout" id="notification">
           {/* <button >Signout</button> */}
           <Timetable
+            url="https://docs.google.com/document/d/e/2PACX-1vTtBdTSiwWA9DrVXVCojhx1W-UeGngSc2WP4MufsVHXbVxGwA3caZpi8eQxmErThw/pub?embedded=true"
             buttonLabel="Time table for FALL-2020"
+            className="modal-color"
+          />
+
+          <Timetable
+            url=""
+            buttonLabel="Exam Schedule Spring-2020"
             className="modal-color"
           />
 

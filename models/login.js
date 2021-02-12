@@ -1,7 +1,7 @@
 // import mongoose from "mongoose";
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-//HTNO,STUDENT_NAME, STUDENT_EMAIL,STUDENT_MOBILE,FATHER_NAME,PARENTS_MOBILE,PARENTS_EMAIL,PASSWORD,BATCH
+//HTNO,STUDENT_NAME, STUDENT_EMAIL,STUDENT_MOBILE,FATHER_NAME,PARENTS_MOBILE,PARENTS_EMAIL,PASSWORD,BATCH,RESET_TOKEN ,RESET_EXPIRE
 const loginSchema = new mongoose.Schema({
   HTNO: {
     type: "String",

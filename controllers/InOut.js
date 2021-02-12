@@ -10,10 +10,10 @@ function InOut(req, res) {
     .find({ HTNO: req.decoded.username })
     .sort({ DATE: -1 })
     .then((sec) => {
-      return res.status(200).json({
+      return res.status(200).json({  
         success: true,
         message: `InOut List ${req.decoded.username}`,
-        security: sec,
+        security: sec, 
       });
     })
     .catch((err) => {
@@ -24,6 +24,7 @@ function InOut(req, res) {
       });
     });
 }
+
 
 module.exports = {
   InOut: InOut,

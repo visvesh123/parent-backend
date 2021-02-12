@@ -1,6 +1,6 @@
 // import { request } from "express";
 
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); 
 mongoose.Promise = global.Promise;
 
 //HTNO,STUDENT_NAME, SUB_CODE,SUB_NAME,LEC_P,LEC_TOT,LAB_P,LAB_TOT, TUT_P,TUT_TOT,SEM,BATCH
@@ -44,6 +44,12 @@ const attendanceSchema = new mongoose.Schema({
   TUT_TOT: {
     type: "String",
     // required: true,
+  },
+  SEC_FIRST :{
+    type: "String"
+  },
+  SEC :{
+    type: "String"
   },
   SEM: {
     type: "String",

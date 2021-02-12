@@ -19,7 +19,7 @@ function createUser(req, res) {
       { HTNO: req.body.username },
       { PASSWORD: password }
     ).then((user) => {
-      res.json({
+      res.json({  
         msg: "updated",
       });
     });

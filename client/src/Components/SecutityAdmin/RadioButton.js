@@ -16,6 +16,10 @@ const RadioButtons = (props) => {
     props.fetchsecInOut(event.target.value);
   };
 
+   
+
+    console.log(props.latestRec[0])
+  
   return (
     <div className="padding">
       <FormControl component="fieldset">
@@ -32,8 +36,18 @@ const RadioButtons = (props) => {
           <FormControlLabel value="OUT" control={<Radio />} label="OUT" />
         </RadioGroup>
       </FormControl>
+  
+      
     </div>
   );
 };
 
-export default connect(null, { fetchsecInOut: fetchsecInOut })(RadioButtons);
+const mapStateToProps = (state) => {
+  return {
+    sec: state.sec,
+    latestRec : state.latestRec
+
+  };
+};
+
+export default connect(mapStateToProps, { fetchsecInOut: fetchsecInOut })(RadioButtons);

@@ -202,6 +202,7 @@ export const fetchsecDetails = (username) => (dispatch) => {
     );
 };
 
+
 export const addCheckingDetails = ({ username, MOVING, REMARKS }) => (
   dispatch
 ) => {
@@ -220,6 +221,74 @@ export const addCheckingDetails = ({ username, MOVING, REMARKS }) => (
       })
     );
 };
+
+// Send message to Parent (Security)
+
+export const sendMessageSecurity = () => (
+  dispatch
+) => {
+  axios
+    .get("/admin/sendMessage")
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: "SEND_MESSAGE",
+        payload : "Message Sent"
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: "error",
+      })
+    );
+};
+
+// FETCH LATEST RECORD 
+
+export const fetchLatestRecord = (htno) => (
+  dispatch
+) => {
+  axios
+    .get(`admin/latestRecord/${htno}`)
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: "LATEST_RECORD",
+        payload : res.data
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: "Couldn't fetch ",
+      })
+    );
+};
+
+// FETCH IMAGE FROM s3
+
+export const fetchImage= (batch , htno) => (
+  dispatch
+) => {
+  axios
+    .get(`/s3/${batch}/${htno}`)
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: "IMAGE_RECORD",
+        payload : res.data
+      });
+    })
+    .catch((err) =>
+      dispatch({
+        type: "GET_ERRORS",
+        payload: "Couldn't fetch ",
+      })
+    );
+};
+
+
 
 // fetch In Out for sec
 

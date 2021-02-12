@@ -55,6 +55,7 @@ class Hamburger1 extends React.Component {
       },
     };
     const menu = [
+      { val: "", link: "" },
       { val: "Home", link: "/home" },
       { val: "Grade", link: "/grade" },
       { val: "Attendance", link: "/attendance" },

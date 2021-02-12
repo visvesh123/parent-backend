@@ -19,6 +19,8 @@ import studentReducer from "./studentReducer";
 import secDetReducer from "./secDetReducer";
 import secSubmitReducer from "./secSubmitReducer";
 import allStudentReducer from "./allStudentReducer";
+import latestRecordSec from './latestRecordSec';
+import imageReducer from './imageReducer'
 
 export default combineReducers({
   notifications: notiReducer,
@@ -37,6 +39,8 @@ export default combineReducers({
   cgpa: cgpaReducer,
   sec: secDetReducer,
   secSubmit: secSubmitReducer,
+  latestRec : latestRecordSec,
   complaint: complaintReducer,
   records: allStudentReducer,
+  image : imageReducer
 });

@@ -21,7 +21,7 @@ function Complaint(req, res) {
     service: "gmail",
     auth: {
       user: "mecparentsportal@gmail.com", // generated ethereal user
-      pass: "parents1234", // generated ethereal password
+      pass: "SureVish*22", // generated ethereal password
     },
     tls: {
       rejectUnauthorized: false,

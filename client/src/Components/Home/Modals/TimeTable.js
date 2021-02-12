@@ -9,7 +9,7 @@ const Timetable = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-    <div>
+    <div style={{ padding: 3 + "px" }}>
       <Button color="primary" onClick={toggle} className={className}>
         {buttonLabel}
       </Button>
@@ -24,7 +24,7 @@ const Timetable = (props) => {
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
           <Iframe
-            url="https://docs.google.com/document/d/e/2PACX-1vTtBdTSiwWA9DrVXVCojhx1W-UeGngSc2WP4MufsVHXbVxGwA3caZpi8eQxmErThw/pub?embedded=true"
+            url={props.url}
             width="800px"
             height="450px"
             id="myId"

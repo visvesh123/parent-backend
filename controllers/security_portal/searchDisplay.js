@@ -22,6 +22,7 @@ const searchDisplay = (req, res) => {
           batch: user[0].BATCH,
           f_name: user[0].FATHER_NAME,
           par_mobile: user[0].PARENTS_MOBILE,
+          par_email : user[0].PARENTS_EMAIL
         });
       }
     })

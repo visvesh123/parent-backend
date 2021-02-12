@@ -16,7 +16,7 @@ const Sec_Summary = (props) => {
   //console.log(items);
   // console.log(items[0].DATE);
   const ren = items.map((item, index) => {
-    return (
+    return ( 
       <tr>
         <th scope="row">{index}</th>
         <td>{item.MOVING}</td>

@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { Input } from "antd";
 import { AudioOutlined } from "@ant-design/icons";
 import { connect } from "react-redux";
-import { fetchsecDetails, fetchsecUsername } from "../../actions/index";
+import { fetchsecDetails, fetchsecUsername ,fetchLatestRecord ,fetchImage } from "../../actions/index";
 const SecForm = (props) => {
   const { Search } = Input;
   const [username, setUsername] = useState("");
@@ -18,15 +18,28 @@ const SecForm = (props) => {
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
-    props.fetchsecUsername(event.target.value);
+
+    props.fetchsecUsername(event.target.value.slice(0, 2) + "XJ1A0" + event.target.value.slice(2));
+
   };
 
-  return (
+  const concatanate = (x)=>{
+    
+    return x.slice(0, 2) + "XJ1A0" + x.slice(2);
+   
+  }
+
+  return ( 
     <div>
       <Search
         placeholder="input ID Number"
         onSearch={(value) => {
-          props.fetchsecDetails({ username: value });
+        let y =  concatanate(value)
+        
+        // console.log(y)
+          props.fetchsecDetails({ username: y });
+          props.fetchLatestRecord(y)
+          props.fetchImage("2018" , y)
         }}
         onChange={handleUsername}
         enterButton
@@ -44,4 +57,6 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   fetchsecDetails: fetchsecDetails,
   fetchsecUsername: fetchsecUsername,
+  fetchLatestRecord : fetchLatestRecord,
+  fetchImage : fetchImage
 })(SecForm);
