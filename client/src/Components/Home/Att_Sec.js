@@ -45,6 +45,7 @@ const Attendance = (props) => {
             <Row>
               <Col md="12" lg="6">
                 <ExampleChart data={data} />
+                <h1>No Data Available!</h1>
               </Col>
               <Col md="12" lg="6">
                 <AttTable data={data} />

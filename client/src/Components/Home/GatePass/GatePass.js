@@ -17,40 +17,40 @@ import {
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
+// const residences = [
+//   {
+//     value: "zhejiang",
+//     label: "Zhejiang",
+//     children: [
+//       {
+//         value: "hangzhou",
+//         label: "Hangzhou",
+//         children: [
+//           {
+//             value: "xihu",
+//             label: "West Lake",
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     value: "jiangsu",
+//     label: "Jiangsu",
+//     children: [
+//       {
+//         value: "nanjing",
+//         label: "Nanjing",
+//         children: [
+//           {
+//             value: "zhonghuamen",
+//             label: "Zhong Hua Men",
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -131,7 +131,7 @@ const RegistrationForm = () => {
         scrollToFirstError
         className="style"
       >
-        <h2 className="vpass">Visitors Pass</h2>
+        <h2 className="vpass">Gate Pass</h2>
         <Form.Item
           className="padding"
           name="Name"

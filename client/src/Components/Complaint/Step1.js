@@ -11,17 +11,17 @@ const Step1 = () => {
             <div className="comp-title">
               <h2>Instruction</h2>
               <p className="test">
-                1) Please be specific with the content and the type of grievance
+                1) Please choose the relevant type of Grievance listed.
                 <br />
-                listed.
+                2) Be specific to the content.
                 <br />
-                2) After submission, We will reply through the mail ID linked.
+                3) You will recieve response from concerned in-charge.
                 <br />
-                3) If student is within the campus, its our responsibility to
-                take care, If not then its we can only support.
-                <br />
-                4) If the Grievance is personal then direct contact to the
-                administartion is suggested.
+              </p>
+              <h2>Note</h2>
+              <p className="test">
+                - Responsibility of student is taken care by the college
+                managment as long as he/she is within the campus.
               </p>
             </div>
           </div>

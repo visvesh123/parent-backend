@@ -27,7 +27,7 @@ const Complaint = () => {
     <div>
       <NavBar1 />
       <div className="gri-title-div">
-        <h1 className="gri-title">GRIEVANCE REDRESSAL CEll</h1>
+        <h1 className="gri-title">GRIEVANCE REDRESSAL Cell</h1>
       </div>
 
       <HorizontalLinearStepper />

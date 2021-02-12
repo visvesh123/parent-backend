@@ -31,7 +31,7 @@ const Number_tick = (props) => {
     <div>
       <div className="tick">
         <ScrollAnimation animateIn="fadeIn">
-          <div className="heading-spi">Average SPI</div>
+          <div className="heading-spi">CGPA:</div>
           <span>{avg.toFixed(2)}</span>
         </ScrollAnimation>
       </div>
