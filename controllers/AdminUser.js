@@ -1,8 +1,3 @@
-// import { Users } from "../models/User";
-// import mongoose from "mongoose";
-// import bcrypt from "bcryptjs";
-// import AdminToken from "../middleware/Admintoken";
-
 const { Users } = require("../models/User");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -21,7 +16,7 @@ function createAdminUser(req, res) {
 
     Users.findOneAndUpdate(
       { EID: req.body.adminID },
-      { PASSWORD: password }
+      { PASSWORD: password },
     ).then((user) => {
       res.json({
         msg: "updated",
@@ -61,14 +56,14 @@ function loginAdminUser(req, res) {
     .catch(() =>
       res.status(500).json({
         message: "Our server is in the locker room, please do try again.",
-      })
+      }),
     );
 }
 
 async function seeAdminUser(req, res) {
   try {
     const user = await Login.find({ HTNO: req.decoded.username }).select(
-      "-password"
+      "-password",
     );
     if (!user) throw Error("User Does not exist");
     res.json(user);

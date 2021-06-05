@@ -1,5 +1,3 @@
-// import majorMarks from "../models/major";
-// import mongoose from "mongoose";
 const mongoose = require("mongoose");
 const majorMarks = require("../models/major");
 

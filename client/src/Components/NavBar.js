@@ -6,7 +6,7 @@ import "./NavBar.css";
 import { useMediaQuery } from "react-responsive";
 import Main from "./NavBar/Hamburger";
 
-const Navbar = () => {
+const Navbar = (props) => {
   // window.addEventListener("scroll", () => {
   //   var header = document.querySelector("header");
   //   header.classList.toggle("scroll", window.scrollY > 0);
@@ -22,6 +22,10 @@ const Navbar = () => {
   });
   const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
   const isRetina = useMediaQuery({ query: "(min-resolution: 2dppx)" });
+
+  const handleLogout = () => {
+    props.logoutUser();
+  };
 
   return (
     <div>
@@ -66,6 +70,16 @@ const Navbar = () => {
                 <Link to="griev" smooth={true} duration={1000}>
                   <span className="middle-main">Grievance</span>
                 </Link>
+              </li>
+              <li>
+                <span
+                  className="middle-main"
+                  style={({ float: "right" }, { fontSize: "25" })}
+                  href="/login"
+                  onClick={handleLogout}
+                >
+                  SIGN OUT
+                </span>
               </li>
             </ul>
           </header>

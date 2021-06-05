@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Select, Row } from "antd";
+import { Select, Row, Col } from "antd";
 
 import Exams from "./Exams";
 import Supplementary from "./Supplementary";
@@ -82,45 +82,45 @@ const Dropdown = (props) => {
   return (
     <div>
       <Container>
-        <Row>
-          <h3 className="headingsh2">Select Semester: &nbsp;</h3>
-          <Select
-            defaultValue={1}
-            style={{ width: 200 }}
-            onChange={handleChange}
-          >
-            <OptGroup label="First year">
-              <Option value={1}> 1-1</Option>
-              <Option value={2}> 1-2</Option>
-            </OptGroup>
-            <OptGroup label="Second year">
-              <Option value={3}> 2-1</Option>
-              <Option value={4}> 2-2</Option>
-            </OptGroup>
-            <OptGroup label="Third year">
-              <Option value={5}> 3-1</Option>
-              <Option value={6}> 3-2</Option>
-            </OptGroup>
-            <OptGroup label="Fourth  year">
-              <Option value={7}> 4-1</Option>
-              <Option value={8}> 4-2</Option>
-            </OptGroup>
-          </Select>
+        <h3 className="headingsh2">Select Semester: &nbsp;</h3>
 
-          <div style={{ marginTop: 30 + "px" }}>
-            {/* {(opt=== "1")&& <Semwise/>} */}
+        <Select defaultValue={1} style={{ width: 200 }} onChange={handleChange}>
+          <OptGroup label="First year">
+            <Option value={1}> 1-1</Option>
+            <Option value={2}> 1-2</Option>
+          </OptGroup>
+          <OptGroup label="Second year">
+            <Option value={3}> 2-1</Option>
+            <Option value={4}> 2-2</Option>
+          </OptGroup>
+          <OptGroup label="Third year">
+            <Option value={5}> 3-1</Option>
+            <Option value={6}> 3-2</Option>
+          </OptGroup>
+          <OptGroup label="Fourth  year">
+            <Option value={7}> 4-1</Option>
+            <Option value={8}> 4-2</Option>
+          </OptGroup>
+        </Select>
 
-            <div className="exam">
-              <Exams m1={m1} m2={m2} final={f} int={int} maj={maj} />
+        <div style={{ marginTop: 30 + "px" }}>
+          {/* {(opt=== "1")&& <Semwise/>} */}
+          <Row>
+            <Col>
+              <div className="exam">
+                <Exams m1={m1} m2={m2} final={f} int={int} maj={maj} />
+              </div>
+              <div className="sem">
+                <Supplementary supply={s} />
+              </div>
+            </Col>
+            <div style={{ marginLeft: 50 + "px" }}>
+              <Col>
+                <Desc final={f} />
+              </Col>
             </div>
-            <div className="sem">
-              <Supplementary supply={s} />
-            </div>
-            <div>
-              <Desc final={f} />
-            </div>
-          </div>
-        </Row>
+          </Row>
+        </div>
       </Container>
     </div>
   );

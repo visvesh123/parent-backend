@@ -1,5 +1,5 @@
 import React from "react";
-import { Descriptions } from "antd";
+// import { Descriptions } from "antd";
 import "./Dropdown.css";
 
 const Desc = (props) => {
@@ -15,7 +15,10 @@ const Desc = (props) => {
   return (
     <div className="container">
       <h2 className="headingsh2">Grades Summary:</h2>
-      <Descriptions>
+      <h4>Grade: {f[0].SPI}</h4>
+      <h4>Credits Gained: {credits}</h4>
+
+      {/* <Descriptions>
         <Descriptions.Item label="Grade">{f[0].SPI}</Descriptions.Item>
         <Descriptions.Item label="Credits Gained">{credits}</Descriptions.Item>
         {/* <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
@@ -23,7 +26,7 @@ const Desc = (props) => {
     <Descriptions.Item label="Address">
       No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
     </Descriptions.Item>  */}
-      </Descriptions>
+      {/* </Descriptions>  */}
       <br />
     </div>
   );

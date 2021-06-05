@@ -27,8 +27,7 @@ function Complaint(req, res) {
       rejectUnauthorized: false,
     },
   });
-  // console.log(mail);
-  // console.log(det);
+
   // setup email data with unicode symbols
   let mailOptions = {
     from: "mecparentsportal@gmail.com", // sender address

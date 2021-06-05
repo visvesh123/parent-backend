@@ -1,4 +1,3 @@
-// import mongoose from "mongoose";
 const mongoose = require("mongoose");
 const { Minor1, Minor2 } = require("../models/minor");
 

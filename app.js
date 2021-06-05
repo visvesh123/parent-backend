@@ -1,4 +1,3 @@
-
 const config = require("./config");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -8,7 +7,7 @@ const bodyParser = require("body-parser");
 // const morgan = require("morgan");
 const nodemailer = require("nodemailer");
 const methodOverride = require("method-override");
-const AWS = require('aws-sdk');
+const AWS = require("aws-sdk");
 
 require("dotenv").config();
 
@@ -20,18 +19,6 @@ const { Mail } = require("./controllers/Mail");
 const Complaint = require("./controllers/Complaint");
 const MainRoutes = require("./routes/main");
 const AdminRoutes = require("./routes/admin");
-const security = require("./models/security");
-const Attendance = require("./models/Attendance");
-
-// import security from "./models/security";
-// import Attendance from "./models/Attendance";
-// import { Minor2, Minor1 } from "./models/minor";
-const { Supplementary } = require("./models/Supplementary");
-const CGPA = require("./models/CGPA");
-
-const { Users } = require("./models/User");
-const Internal_Lab = require("./models/Internal_Lab");
-const majorMarks = require("./models/major");
 
 const app = express();
 app.use(methodOverride("_method"));
@@ -40,16 +27,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(morgan("dev"));
 app.use(bodyParser.json());
 
-const { MONGO_URI, MONGO_DB_NAME ,accessKeyId, secretAccessKey ,BUCKET } = config;
+const { MONGO_URI, MONGO_DB_NAME, accessKeyId, secretAccessKey, BUCKET } =
+  config;
 
 AWS.config.update({
   accessKeyId: accessKeyId,
-  secretAccessKey: secretAccessKey
+  secretAccessKey: secretAccessKey,
+});
 
-})
-
-let s3 = new AWS.S3()
-
+let s3 = new AWS.S3();
 
 mongoose
   .connect(MONGO_URI, {
@@ -63,6 +49,81 @@ mongoose
 app.use("/portal/", MainRoutes);
 app.use("/admin/", AdminRoutes);
 //HTNO,STUDENT_NAME, SUB_CODE,SUB_NAME,LEC_P,LEC_TOT,LAB_P,LAB_TOT, TUT_P,TUT_TOT,SEC_FIRST ,SEC,SEM,BATCH
+
+app.get("/s3/:folder/:id", (req, res) => {
+  async function getImage() {
+    const data = s3
+      .getObject({
+        Bucket: BUCKET,
+        Key: `${req.params.folder}/${req.params.id}.JPG`,
+      })
+      .promise();
+    return data;
+  }
+
+  function encode(data) {
+    let buf = Buffer.from(data);
+    let base64 = buf.toString("base64");
+    return base64;
+  }
+
+  getImage()
+    .then((img) => {
+      //  let image="<img src='data:image/jpeg;base64," + encode(img.Body) + "'" + "/>";
+      //  let startHTML="<html><body></body>";
+      //  let endHTML="</body></html>";
+      //  let html=startHTML + image + endHTML;
+      //  res.send(html)
+      const x = encode(img.Body);
+      res.json({
+        img: x,
+      });
+    })
+    .catch((e) => {
+      res.send(e);
+    });
+});
+
+app.get("/users", (req, res) => {
+  Login.find({}, (err, login) => {
+    res.status(200).json({ login });
+  });
+});
+
+app.get("/admin", (req, res) => {
+  User.find({}, (err, user) => {
+    res.status(200).json({ user });
+  });
+});
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    msg: "Welcome to parents portal",
+  });
+});
+
+// app.get("*", (req, res) => {
+//   res.status(400).json({
+//     message:
+//       "This is Parents portal. Please see documentation for the proper routes.",
+//   });
+// });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html")); // relative path
+  });
+}
+const { PORT } = config;
+
+// const PORT = 3001;
+app.listen(PORT, () => {
+  console.log(`Connected to Port No : ${PORT}`);
+});
+
+module.exports = app;
 // Attendance.create({
 //   HTNO:"szc",
 //   STUDENT_NAME:"ss",
@@ -222,78 +283,3 @@ app.use("/admin/", AdminRoutes);
 //   SEM: "fssd",
 //   BATCH: "sc",
 // });
-
-app.get("/s3/:folder/:id", (req,res)=>{
-  async function getImage(){
-    const data =  s3.getObject(
-      {
-          Bucket: BUCKET ,
-          Key: `${req.params.folder}/${req.params.id}.JPG` 
-        }
-      
-    ).promise();
-    return data;
-  }
-
-  function encode(data){
-    let buf = Buffer.from(data);
-    let base64 = buf.toString('base64'); 
-    return base64
-    }
-
-    getImage()
-    .then((img)=>{
-    //  let image="<img src='data:image/jpeg;base64," + encode(img.Body) + "'" + "/>";
-    //  let startHTML="<html><body></body>";
-    //  let endHTML="</body></html>";
-    //  let html=startHTML + image + endHTML;
-    //  res.send(html)
-    const x = encode(img.Body)
-    res.json({
-      img : x
-    })
-     }).catch((e)=>{
-           res.send(e)
-     })
-})
-
-app.get("/users", (req, res) => {
-  Login.find({}, (err, login) => {
-    res.status(200).json({ login });
-  });
-});
-
-app.get("/admin", (req, res) => {
-  User.find({}, (err, user) => {
-    res.status(200).json({ user });
-  });
-});
-
-app.get("/", (req, res) => {
-  res.status(200).json({
-    msg: "Welcome to parents portal",
-  });
-});
-
-// app.get("*", (req, res) => {
-//   res.status(400).json({
-//     message:
-//       "This is Parents portal. Please see documentation for the proper routes.",
-//   });
-// });
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html")); // relative path
-  });
-}
-const { PORT } = config;
-
-// const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Connected to Port No : ${PORT}`);
-});
-
-module.exports = app;

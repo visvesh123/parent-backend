@@ -1,17 +1,11 @@
-// import express from "express";
 const express = require("express");
 const { M1, M2 } = require("../controllers/Minor");
 const { Fin, finCGPA, FinDel } = require("../controllers/final");
 const { InOut } = require("../controllers/InOut");
 const { Attend } = require("../controllers/Attend");
 const verifyToken = require("../middleware/verifyToken");
-const verifyAdminToken = require("../middleware/verifyAdminToken");
 const { createUser, loginUser, seeUser } = require("../controllers/user");
-const {
-  createAdminUser,
-  loginAdminUser,
-  seeAdminUser,
-} = require("../controllers/AdminUser");
+const { createAdminUser, loginAdminUser } = require("../controllers/AdminUser");
 const { Noti } = require("../controllers/notification");
 const { ForgetPassword } = require("../controllers/Forget-pass");
 const { resetPassword } = require("../controllers/resetPassword");
@@ -22,28 +16,6 @@ const { Complaint } = require("../controllers/Complaint");
 const { Supp } = require("../controllers/Supplementary");
 const { internal } = require("../controllers/internal_Lab");
 const { Major } = require("../controllers/Major");
-const { Mail } = require("../controllers/Mail");
-
-// import { M1, M2 }=  require("../controllers/Minor";
-// import { Fin, finCGPA } from "../controllers/final";
-// import { InOut } from "../controllers/InOut";
-// import { Attend } from "../controllers/Attend";
-// const verifyToken = require("../middleware/verifyToken");
-// const verifyAdminToken = require("../middleware/verifyAdminToken");
-// import { createUser, loginUser, seeUser } from "../controllers/user";
-// import {
-//   createAdminUser,
-//   loginAdminUser,
-//   seeAdminUser,
-// } from "../controllers/AdminUser";
-// import { Noti } from "../controllers/notification";
-// import { ForgetPassword } from "../controllers/Forget-pass";
-// import { resetPassword } from "../controllers/resetPassword";
-// import { updatePasswordViaEmail } from "../controllers/updatePassWithEmail";
-// import { Complaint } from "../controllers/Complaint";
-// import { Supp } from "../controllers/Supplementary";
-// import { internal } from "../controllers/internal_Lab";
-// import { Major } from "../controllers/Major";
 
 const router = express.Router();
 //grades
@@ -54,7 +26,6 @@ router.get("/supplementary/:semester", verifyToken, Supp);
 router.get("/internal/:semester", verifyToken, internal);
 router.get("/major/:semester", verifyToken, Major);
 router.get("/cgpa", verifyToken, finCGPA);
-// router.delete("/del", FinDel);
 
 // parent login
 router.post("/login", loginUser);

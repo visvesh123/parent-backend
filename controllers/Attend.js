@@ -1,14 +1,9 @@
-const mongoose = require("mongoose");
 const Attendance = require("../models/Attendance");
 
 function Attend(req, res) {
-  Attendance.find(
-    {
-      $and: [{ HTNO: req.decoded.username }, { SEM: req.params.semester }],
-    }
-    // { "Hall ticket No": req.decoded.username },
-    // { SEMESTER: req.params.semester }
-  )
+  Attendance.find({
+    $and: [{ HTNO: req.decoded.username }, { SEM: req.params.semester }],
+  })
     .sort({ "SUBJECT NAME": 1 })
     .then((Att) => {
       return res.status(200).json({

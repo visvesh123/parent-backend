@@ -1,6 +1,3 @@
-// import mongoose from "mongoose";
-// import Login from "../models/login";
-// import bcrypt from "bcryptjs";
 const mongoose = require("mongoose");
 const Login = require("../models/login");
 const bcrypt = require("bcryptjs");
@@ -19,7 +16,7 @@ function resetPassword(req, res) {
         },
       },
       { PASSWORD: password, RESET_TOKEN: null, RESET_EXPIRE: null },
-      { upsert: false }
+      { upsert: false },
     ).then((user) => {
       // console.log(user);
       if (user == null) {

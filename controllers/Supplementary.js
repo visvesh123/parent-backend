@@ -1,6 +1,3 @@
-// import mongoose from "mongoose";
-const mongoose = require("mongoose");
-// import { Supplementary } from "../models/Supplementary";
 const { Supplementary } = require("../models/Supplementary");
 
 function Supp(req, res) {

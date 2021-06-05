@@ -51,13 +51,13 @@ class Notifications extends Component {
           {/* <a className="signout-btn" href="#"> 
             TimeTable
           </a> */}
-          <a
+          {/* <a
             className="signout-btn sign"
             href="/login"
             onClick={this.handleClick}
           >
             Signout
-          </a>
+          </a> */}
         </div>
         <div>
           <h2 className="head_ph">Announcements</h2>

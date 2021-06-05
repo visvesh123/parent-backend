@@ -1,5 +1,3 @@
-// import mongoose from "mongoose";
-const mongoose = require("mongoose");
 const Login = require("../models/login");
 
 function updatePasswordViaEmail(req, res) {

@@ -1,6 +1,3 @@
-// import mongoose from "mongoose";
-// import Internal_Lab from "../models/Internal_Lab";
-
 const mongoose = require("mongoose");
 const Internal_Lab = require("../models/Internal_Lab");
 
