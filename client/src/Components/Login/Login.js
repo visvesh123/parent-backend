@@ -83,13 +83,13 @@ class NormalLoginForm extends React.Component {
             <Row>
               <Col xs={24} md={12}>
                 <Carousel autoplay>
-                  <div>
+                  <div className="carousel">
                     <img src={Slide1} alt="Slide1" />
                   </div>
-                  <div>
+                  <div className="carousel">
                     <img src={Slide2} alt="Slide2" />
                   </div>
-                  <div>
+                  <div className="carousel">
                     <img src={Slide3} alt="Slide3" />
                   </div>
                 </Carousel>
@@ -121,6 +121,7 @@ class NormalLoginForm extends React.Component {
                           ]}
                         >
                           <Input
+                            style={{ borderRadius: "10px" }}
                             prefix={
                               <UserOutlined className="site-form-item-icon" />
                             }
@@ -138,6 +139,7 @@ class NormalLoginForm extends React.Component {
                           ]}
                         >
                           <Input
+                            style={{ borderRadius: "10px" }}
                             prefix={
                               <LockOutlined className="site-form-item-icon" />
                             }
@@ -165,7 +167,7 @@ class NormalLoginForm extends React.Component {
                         </Form.Item>
                       </Form>
                     </TabPane>
-                    <TabPane tab="Forgot Password" key="2">
+                    <TabPane disabled tab="Forgot Password" key="2">
                       <Reset />
                     </TabPane>
                   </Tabs>
@@ -200,5 +202,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { loginUser: loginUser })(
-  NormalLoginForm
+  NormalLoginForm,
 );

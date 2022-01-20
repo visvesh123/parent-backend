@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-google-charts";
+import "./Chart.css";
 
 const Chart_CGPA = (props) => {
   // console.log(props.results);
@@ -14,10 +15,10 @@ const Chart_CGPA = (props) => {
   // console.log(temp);
 
   return (
-    <div>
+    <div className="chart">
       <Chart
-        width={"500px"}
-        height={"400px"}
+        width={"600px"}
+        height={"500px"}
         chartType="LineChart"
         loader={<div>Loading Chart</div>}
         data={[["x", "CGPA"], ...temp]}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { ScrollArea } from "react-scrollbar";
-import RegistrationForm from "./GatePass/GatePass";
+// import RegistrationForm from "./GatePass/GatePass";
 import "./Home.css";
 import Navbar from "../NavBar";
 import Griev from "./Griev_Sec";
@@ -61,11 +61,11 @@ const Home = (props) => {
               <h1 className="id">{id}</h1>
               <Notifications />
 
-              <RegistrationForm />
+              {/* <RegistrationForm /> */}
 
               <Grade_Sec />
 
-              <Attendance />
+              {/* <Attendance /> */}
 
               <In_Sec />
 

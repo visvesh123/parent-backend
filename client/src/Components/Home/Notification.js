@@ -34,31 +34,6 @@ class Notifications extends Component {
 
     return (
       <div style={{ marginBottom: 30 + "px" }}>
-        <div className="signout" id="notification">
-          {/* <button >Signout</button> */}
-          <Timetable
-            url="https://docs.google.com/document/d/e/2PACX-1vTtBdTSiwWA9DrVXVCojhx1W-UeGngSc2WP4MufsVHXbVxGwA3caZpi8eQxmErThw/pub?embedded=true"
-            buttonLabel="Time table for FALL-2020"
-            className="modal-color"
-          />
-
-          <Timetable
-            url=""
-            buttonLabel="Exam Schedule Spring-2020"
-            className="modal-color"
-          />
-
-          {/* <a className="signout-btn" href="#"> 
-            TimeTable
-          </a> */}
-          {/* <a
-            className="signout-btn sign"
-            href="/login"
-            onClick={this.handleClick}
-          >
-            Signout
-          </a> */}
-        </div>
         <div>
           <h2 className="head_ph">Announcements</h2>
         </div>

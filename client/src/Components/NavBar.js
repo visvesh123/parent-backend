@@ -5,6 +5,7 @@ import Logo from "./logo.png";
 import "./NavBar.css";
 import { useMediaQuery } from "react-responsive";
 import Main from "./NavBar/Hamburger";
+import Logout from "./Login/Logout";
 
 const Navbar = (props) => {
   // window.addEventListener("scroll", () => {
@@ -72,14 +73,15 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li>
-                <span
+                {/* <span
                   className="middle-main"
                   style={({ float: "right" }, { fontSize: "25" })}
                   href="/login"
-                  onClick={handleLogout}
-                >
-                  SIGN OUT
-                </span>
+                  // onClick={handleLogout}
+                > */}
+                <Logout />
+                {/* SIGN OUT */}
+                {/* </span> */}
               </li>
             </ul>
           </header>

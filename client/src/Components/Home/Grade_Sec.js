@@ -50,14 +50,6 @@ const Grade_Sec = (props) => {
                 <Chart_CGPA results={data} />
               </Col>
               <Col md="12" lg="6">
-                {/* <Accordion title="Semester-1" content="<h5>CGPA: 9.5</h5>" />
-                <Accordion title="Semester-2" content="<h5>CGPA: 9.1" />
-                <Accordion title="Semester-3" content="<h5>CGPA: 8.7" />
-                <Accordion title="Semester-4" content="<h5>CGPA: 9.0" />
-                <Accordion title="Semester-5" content="<h5>CGPA: 7.0" />
-                <Accordion title="Semester-6" content="<h5>CGPA: 8.0" />
-                <Accordion title="Semester-7" content="<h5>CGPA: 9.2" />
-                <Accordion title="Semester-8" content="<h5>CGPA: 9.7" /> */}
                 <Number_tick results={data} />
               </Col>
             </Row>

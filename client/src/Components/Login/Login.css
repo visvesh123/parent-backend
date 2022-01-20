@@ -83,3 +83,7 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15p
 .footer {
   margin-top: 30px;
 }
+
+.carousel {
+  overflow: hidden;
+}

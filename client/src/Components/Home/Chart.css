@@ -1,13 +1,6 @@
-.tick {
+.chart {
   min-height: 100vh; /* height of the browser viewport */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 120px;
-}
-
-.heading-spi {
-  font-size: 40px;
-  text-align: center;
-  color: whitesmoke;
 }

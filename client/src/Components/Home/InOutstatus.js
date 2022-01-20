@@ -24,13 +24,13 @@ const Status = (props) => {
   }
 
   return (
-    <div>
-      <div className="status">
-        <ScrollAnimation animateIn="fadeIn">
-          <span>{getSafe(() => props.item.MOVING, "OUT")}</span>
-          <div className="heading-out">Current status of your ward</div>
-        </ScrollAnimation>
-      </div>
+    <div className="status">
+      <ScrollAnimation animateIn="fadeIn">
+        <div className="heading-out">Current status</div>
+        <span style={{ color: "#E31138" }}>
+          {getSafe(() => props.item.MOVING, "OUT")}
+        </span>
+      </ScrollAnimation>
     </div>
   );
 };
