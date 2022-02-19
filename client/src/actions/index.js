@@ -8,6 +8,13 @@ export const fetchNotifications = () => async (dispatch, getState) => {
   //console.log(response.data.item[0].From);
 };
 
+//Som Notifications
+export const fetchSomNotifications = () => async (dispatch, getState) => {
+  const response = await web.get("/som/notifications");
+  dispatch({ type: "FETCH_SOM_NOTIFICATION", payload: response.data });
+  //console.log(response.data.item[0].From);
+};
+
 // Security
 
 export const fetchInOut = () => async (dispatch, getState) => {
@@ -25,6 +32,14 @@ export const fetchAttendance = (semester) => async (dispatch, getState) => {
     headers: { Authorization: localStorage.getItem("jwtToken") },
   });
   dispatch({ type: "FETCH_ATTENDANCE", payload: response.data });
+  // console.log(response.data);
+};
+
+export const fetchSomAttendance = (semester) => async (dispatch, getState) => {
+  const response = await web.get(`/som/attendance/${semester}`, {
+    headers: { Authorization: localStorage.getItem("jwtToken") },
+  });
+  dispatch({ type: "FETCH_SOM_ATTENDANCE", payload: response.data });
   // console.log(response.data);
 };
 
@@ -106,6 +121,17 @@ export const fetchFinal = (semester) => async (dispatch, getState) => {
   //console.log(response.data.marks);
 };
 
+//fetch som final
+
+export const fetchSomFinal = (semester) => async (dispatch, getState) => {
+  const response = await web.get(`/som/final/${semester}`, {
+    headers: { Authorization: localStorage.getItem("jwtToken") },
+  });
+  console.log(response.data);
+  dispatch({ type: "FETCH_SOM_FINAL", payload: response.data.marks });
+  //console.log(response.data.marks);
+};
+
 //fetch Supplementary
 export const fetchSupplementary = (semester) => async (dispatch, getState) => {
   const response = await web.get(`/supplementary/${semester}`, {
@@ -139,6 +165,15 @@ export const fetchCGPA = () => async (dispatch, getState) => {
     headers: { Authorization: localStorage.getItem("jwtToken") },
   });
   dispatch({ type: "FETCH_CGPA", payload: response.data.CGPA });
+  //console.log(response.data.CGPA);
+};
+
+// fetch som CGPA
+export const fetchSomCGPA = () => async (dispatch, getState) => {
+  const response = await web.get("/som/cgpa", {
+    headers: { Authorization: localStorage.getItem("jwtToken") },
+  });
+  dispatch({ type: "FETCH_SOM_CGPA", payload: response.data.CGPA });
   //console.log(response.data.CGPA);
 };
 

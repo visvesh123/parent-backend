@@ -1,0 +1,27 @@
+.gri-title-div{
+    height: 30vh;
+    display: flex;
+     justify-content: center; 
+    align-items: center;
+    margin-top: 0;
+}
+
+.gri-title{
+    /* text-decoration: underline; */
+    text-transform:uppercase ;
+    
+}
+
+.gri-title-div ::after{
+    content: '';
+    display: block;
+    border-bottom: 2px solid #337ab7;
+    width: 44px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gri-title-underline{
+    border: 1px solid black;
+}

@@ -28,6 +28,14 @@ import VerticalTabs from "./Components/SecutityAdmin/SecHome";
 import SecLogin from "./Components/SecutityAdmin/SecLogin";
 import Main1 from "./Components/NavBar/Hamburger1";
 import Example from "./Components/NavBar/test";
+
+//som imports 
+import Chooseuni from "./Components/Chooseuni/Chooseuni";
+import NormalLoginFormSom from "./Somcomponents/Login/Login";
+import Grade_som from "./Somcomponents/Grades/Grade";
+import Att_som from "./Somcomponents/Attendance/Attendance";
+import Home_som from "./Somcomponents/Home/Home";
+
 import { store } from "./index";
 function App() {
   return (
@@ -38,6 +46,13 @@ function App() {
         <PrivateRoute exact path="/grade" component={Grade} />
         <PrivateRoute exact path="/attendance" component={Att} />
         <Route exact path="/login" component={NormalLoginForm} />
+
+        <Route exact path="/som/home" component={Home_som} />
+        <Route exact path="/choose" component={Chooseuni} />
+        <Route exact path="/som/login" component={NormalLoginFormSom}/>
+        <Route exact path="/som/grade" component={Grade_som}/>
+        <Route exact path="/som/attendance" component={Att_som}/>
+
         <PrivateRoute exact path="/summary" component={Sec_Summary} />
         <Route exact path="/reset/:token" component={ResetPassword} />
         {/* <Route exact path="/ham" component={Example} /> */}

@@ -17,6 +17,11 @@ const { Supp } = require("../controllers/Supplementary");
 const { internal } = require("../controllers/internal_Lab");
 const { Major } = require("../controllers/Major");
 
+const { Attend_som } = require("../controllers/som/Attend");
+const { Noti_som } = require("../controllers/som/notification");
+const { Fin_som , finCGPA_som} = require("../controllers/som/final");
+const {Supp_som} = require("../controllers/som/Supplementary")
+
 const router = express.Router();
 //grades
 router.get("/M1/:semester", verifyToken, M1);
@@ -26,6 +31,16 @@ router.get("/supplementary/:semester", verifyToken, Supp);
 router.get("/internal/:semester", verifyToken, internal);
 router.get("/major/:semester", verifyToken, Major);
 router.get("/cgpa", verifyToken, finCGPA);
+
+//som grades 
+router.get("/som/attendance/:semester", verifyToken, Attend_som);
+router.get("/som/final/:semester", verifyToken, Fin_som);
+router.get("/som/supplementary/:semester", verifyToken, Supp_som);
+router.get("/som/cgpa", verifyToken, finCGPA_som);
+
+//som Notifications
+router.get("/som/notifications", Noti_som);
+
 
 // parent login
 router.post("/login", loginUser);

@@ -20,6 +20,8 @@ const Complaint = require("./controllers/Complaint");
 const MainRoutes = require("./routes/main");
 const AdminRoutes = require("./routes/admin");
 
+// const {finalGrade_som} = require("./models/som/final_grade");
+
 const app = express();
 app.use(methodOverride("_method"));
 app.use(cors());
@@ -124,7 +126,8 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
-// Attendance.create({
+
+// attendance_som.create({
 //   HTNO:"szc",
 //   STUDENT_NAME:"ss",
 //   SUB_CODE:"sscdc",
@@ -141,16 +144,16 @@ module.exports = app;
 //   BATCH:'xxc'
 // })
 
-// Notification.create({
+// Notification_som.create({
 //   STATUS: "c",
 //   TILL: new Date(),
 //   SUBJECT: "xcvx",
 //   DESCRIPTION: "sfdc",
 // });
-// finalGrade.create({
-//   HTNO: "43",
+// finalGrade_som.create({
+//   HTNO: "19XJ1A0513",
 //   BRANCH: "cs",
-//   STUDENT_NAME: "fs",
+//   STUDENT_NAME: "BOINIPALLI CHETHAN RAO",
 //   SUB_CODE: "ef",
 //   SUB_NAME: "fdf",
 //   GRADE: "sfd",
@@ -172,7 +175,7 @@ module.exports = app;
 //   BATCH: "sc",
 // });
 //HTNO, STUDENT_NAME, BRANCH, SUB_CODE, SUB_NAME, SEMESTER, BATCH;
-// Supplementary.create({
+// Supplementary_som.create({
 //   HTNO: "32",
 //   STUDENT_NAME: "dscd",
 //   SUB_CODE: "SDSS",
@@ -276,7 +279,7 @@ module.exports = app;
 
 //HTNO, STUDENT_NAME, CGPA, SEM, BATCH;
 
-// CGPA.create({
+// CGPA_som.create({
 //   HTNO: "fs",
 //   STUDENT_NAME: "sc",
 //   CGPA: "sc",

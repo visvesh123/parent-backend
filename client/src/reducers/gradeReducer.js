@@ -28,6 +28,16 @@ export const finalReducer = (state = [], action) => {
   }
 };
 
+export const finalSomReducer = (state = [], action) => {
+  switch (action.type) {
+    case "FETCH_SOM_FINAL":
+      return [action.payload];
+
+    default:
+      return state;
+  }
+};
+
 export const suppleReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCH_SUPPLEMENTARY":
@@ -61,6 +71,16 @@ export const majorReducer = (state = [], action) => {
 export const cgpaReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCH_CGPA":
+      return [...state, action.payload];
+
+    default:
+      return state;
+  }
+};
+
+export const cgpaSomReducer = (state = [], action) => {
+  switch (action.type) {
+    case "FETCH_SOM_CGPA":
       return [...state, action.payload];
 
     default:

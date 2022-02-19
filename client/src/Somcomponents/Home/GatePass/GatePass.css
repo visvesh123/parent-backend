@@ -1,0 +1,34 @@
+.style {
+  margin-top: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 25px;
+  -webkit-box-shadow: 2px 3px 26px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 3px 26px -9px rgba(0, 0, 0, 0.75);
+}
+.padding {
+  padding-top: 20px;
+}
+.bottom {
+  padding-bottom: 30px;
+}
+.vpass {
+  padding-left: 280px;
+}
+.visitor-pass {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.visitor-pass h2 {
+  font-family: "Gotham", sans-serif;
+  color: #e31138;
+}
+.visitor-pass .ant-form {
+  padding: 20px 10px;
+}
+
+@media all and (max-width: 750px) {
+  .vpass {
+    padding-left: 100px;
+  }
+}

@@ -1,0 +1,38 @@
+.formStyle{
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border: 3px solid #cacac3;
+    border-radius: 5px;
+
+
+
+}
+
+
+.comp-title ::after{
+    content: '';
+    display: block;
+    border-bottom: 2px solid #337ab7;
+    width: 44px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.test{
+    margin: 0 0 10px;
+}
+
+.griev-table{
+    width: 100%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+  }
