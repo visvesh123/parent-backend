@@ -14,6 +14,7 @@ require("dotenv").config();
 const Notification = require("./models/notification");
 const Login = require("./models/login");
 const finalGrade = require("./models/final_grade");
+const Login_som = require("./models/som/login");
 
 const { Mail } = require("./controllers/Mail");
 const Complaint = require("./controllers/Complaint");
@@ -187,18 +188,18 @@ module.exports = app;
 //   BATCH: "cx",
 // });
 
-// Login.create({
-//   HTNO: "2e43",
-//   STUDENT_NAME: "sfd",
-//   STUDENT_EMAIL: "rvg",
-//   STUDENT_MOBILE: "4rf4re",
-//   FATHER_NAME: "452",
-//   PARENTS_MOBILE: "fsdcc",
-//   PARENTS_EMAIL: "fcd",
-//   PASSWORD: "r4ewr",
-//   BATCH: "scxc",
-//   RESET_TOKEN: "cc",
-// });
+Login_som.create({
+  HTNO: "19XJ1A0513",
+  STUDENT_NAME: "BOINIPALLI CHETHAN RAO",
+  STUDENT_EMAIL: "boinipalli1913@mechyd.ac.in",
+  STUDENT_MOBILE: "1234567890",
+  FATHER_NAME: "hkr",
+  PARENTS_MOBILE: "214133241",
+  PARENTS_EMAIL: "dbnajfb@fnkd.com",
+  PASSWORD: "$2y$10$CO2GlQhh1NbBqJBYAyjBM.G88IhIJW13Z9U7x3BjXzAWJfMndSGV6",
+  BATCH: "scxc",
+  RESET_TOKEN: "cc",
+});
 
 //InOut
 // security.create({

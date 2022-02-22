@@ -11,7 +11,7 @@ export const Logout = ({ loginUser }) => {
         className="middle-main"
         style={({ float: "right" }, { fontSize: "25" })}
         onClick={loginUser()}
-        href="/login"
+        href="/som/login"
       >
         Logout
       </NavLink>

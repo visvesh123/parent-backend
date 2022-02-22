@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Reset from "./Register";
-import { loginUser } from "../../actions/authAction";
+import { loginSomUser } from "../../actions/authAction";
 import { clearErrors } from "../../actions/errorAction";
 import Logo from "./logo.png";
 import Slide1 from "./slide1.jpg";
@@ -45,13 +45,13 @@ class NormalLoginFormSom extends React.Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/home");
+      this.props.history.push("/som/home");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/home");
+      this.props.history.push("/som/home");
     }
 
     if (nextProps.errors) {
@@ -60,7 +60,7 @@ class NormalLoginFormSom extends React.Component {
   }
 
   Finish(values) {
-    this.props.loginUser(values);
+    this.props.loginSomUser(values);
   }
 
   render() {
@@ -187,7 +187,7 @@ class NormalLoginFormSom extends React.Component {
 }
 
 NormalLoginFormSom.propTypes = {
-  loginUser: PropTypes.func.isRequired,
+  loginSomUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
 };
@@ -201,6 +201,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { loginUser: loginUser })(
+export default connect(mapStateToProps, { loginSomUser: loginSomUser })(
   NormalLoginFormSom,
 );

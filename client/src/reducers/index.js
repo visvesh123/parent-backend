@@ -17,7 +17,7 @@ import {
   cgpaSomReducer,
 } from "./gradeReducer";
 import complaintReducer from "./complaintReducer";
-import studentReducer from "./studentReducer";
+import {studentReducer,studentSomReducer} from "./studentReducer";
 import secDetReducer from "./secDetReducer";
 import secSubmitReducer from "./secSubmitReducer";
 import allStudentReducer from "./allStudentReducer";
@@ -29,6 +29,7 @@ export default combineReducers({
   notifications_som: notiSomReducer,
   auth: authReducer,
   student: studentReducer,
+  student_som: studentSomReducer,
   errors: errorReducer,
   security: securityReducer,
   attendance: attendanceReducer,

@@ -53,6 +53,15 @@ export const fetchStudent = () => async (dispatch, getState) => {
   //console.log(response.data.user);
 };
 
+//som student fetch
+export const fetchSomStudent = () => async (dispatch, getState) => {
+  const response = await web.get("/som/profile", {
+    headers: { Authorization: localStorage.getItem("jwtToken") },
+  });
+  dispatch({ type: "FETCH_SOM_STUDENT", payload: response.data.user });
+  //console.log(response.data.user);
+};
+
 // Reset Password
 
 export const resetPassword = (userData) => (dispatch) => {

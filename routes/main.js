@@ -20,7 +20,8 @@ const { Major } = require("../controllers/Major");
 const { Attend_som } = require("../controllers/som/Attend");
 const { Noti_som } = require("../controllers/som/notification");
 const { Fin_som , finCGPA_som} = require("../controllers/som/final");
-const {Supp_som} = require("../controllers/som/Supplementary")
+const {Supp_som} = require("../controllers/som/Supplementary");
+const {loginUser_som,seeUser_som} = require("../controllers/som/user");
 
 const router = express.Router();
 //grades
@@ -40,7 +41,9 @@ router.get("/som/cgpa", verifyToken, finCGPA_som);
 
 //som Notifications
 router.get("/som/notifications", Noti_som);
-
+//som parent login
+router.post("/som/login", loginUser_som);
+router.get("/som/profile", verifyToken, seeUser_som);
 
 // parent login
 router.post("/login", loginUser);

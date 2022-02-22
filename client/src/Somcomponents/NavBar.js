@@ -62,11 +62,11 @@ const Navbar = (props) => {
                   <span className="middle-main">Attendance</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="in" smooth={true} duration={1000}>
                   <span className="middle-main">In & Out</span>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="griev" smooth={true} duration={1000}>
                   <span className="middle-main">Grievance</span>
